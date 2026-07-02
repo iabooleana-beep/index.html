@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Directorio Venezuela · IAbooleana</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#F1F5F9; --card:#FFFFFF; --navy:#111827; --cyan:#00C4B0;
+  --mint:#00C896; --border:#E2E8F0; --gray:#64748B; --gray-light:#94A3B8;
+  --orange:#F97316; --magenta:#C026D3; --soft-cyan:#0891B2;
+  --green:#059669; --red:#EF4444;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--navy);font-family:'Outfit',sans-serif;font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+
+/* HEADER */
+.header{background:rgba(255,255,255,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:14px 20px;position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{font-family:'Outfit',sans-serif;font-weight:900;font-size:20px;letter-spacing:-.5px}
+.logo span{background:linear-gradient(135deg,#00C4B0,#00C896);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.logo-sub{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--gray);display:block;margin-top:1px}
+.updated{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--gray);text-align:right;line-height:1.4}
+.updated strong{color:var(--cyan)}
+
+/* PHASE BANNER */
+.phase{background:rgba(0,196,176,.06);border-bottom:1px solid rgba(0,196,176,.18);padding:10px 20px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.phase-badge{font-family:'JetBrains Mono',monospace;font-size:12px;background:rgba(0,196,176,.1);color:var(--cyan);border:1px solid rgba(0,196,176,.3);padding:4px 11px;border-radius:20px;white-space:nowrap}
+.phase-text{font-size:14px;color:var(--gray)}
+.phase-text strong{color:var(--navy)}
+
+/* DIFF BANNER */
+.diff{background:rgba(192,38,211,.04);border-bottom:1px solid rgba(192,38,211,.15);padding:10px 20px;display:flex;align-items:center;gap:8px}
+.diff-icon{font-size:14px}
+.diff-text{font-size:14px;color:var(--gray)}
+.diff-text strong{color:var(--magenta)}
+
+/* FILTERS */
+.filters{padding:14px 20px 0;display:flex;gap:8px;flex-wrap:wrap}
+.f-btn{font-family:'JetBrains Mono',monospace;font-size:13px;padding:7px 16px;border-radius:20px;border:1px solid var(--border);background:var(--card);color:var(--gray);cursor:pointer;transition:all .15s}
+.f-btn.active,.f-btn:hover{border-color:var(--cyan);background:rgba(0,196,176,.08);color:var(--cyan)}
+
+/* TABS */
+.tabs{padding:14px 20px 0;display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid var(--border);padding-bottom:0}
+.tabs::-webkit-scrollbar{display:none}
+.tab{font-family:'JetBrains Mono',monospace;font-size:13px;padding:9px 16px;border:none;background:transparent;color:var(--gray);cursor:pointer;border-bottom:2px solid transparent;transition:all .15s;white-space:nowrap}
+.tab.active{color:var(--navy);border-bottom-color:var(--cyan)}
+
+/* GRID */
+.section{display:none;padding:16px 20px 40px}
+.section.active{display:block}
+.section-title{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--gray-light);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px;padding-top:4px}
+.grid{display:grid;grid-template-columns:1fr;gap:10px}
+
+/* CARDS */
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:border-color .2s;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.card:hover{border-color:rgba(0,196,176,.35)}
+.card-head{padding:14px 16px}
+.card-meta{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px;flex-wrap:wrap}
+.card-name{font-family:'Outfit',sans-serif;font-weight:700;font-size:16px;color:var(--navy);line-height:1.2}
+.badges{display:flex;gap:5px;flex-wrap:wrap}
+.badge{font-family:'JetBrains Mono',monospace;font-size:11px;padding:3px 9px;border-radius:20px;white-space:nowrap}
+.badge-verified{background:rgba(5,150,105,.08);color:var(--green);border:1px solid rgba(5,150,105,.25)}
+.badge-official{background:rgba(8,145,178,.08);color:var(--soft-cyan);border:1px solid rgba(8,145,178,.25)}
+.badge-ai{background:rgba(192,38,211,.08);color:var(--magenta);border:1px solid rgba(192,38,211,.25)}
+.badge-warning{background:rgba(249,115,22,.08);color:var(--orange);border:1px solid rgba(249,115,22,.25)}
+.card-url{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--cyan);text-decoration:none;display:inline-flex;align-items:center;gap:4px;margin-bottom:8px;transition:opacity .15s}
+.card-url:hover{opacity:.75}
+.card-desc{font-size:15px;color:var(--gray);line-height:1.55}
+.audience{display:flex;gap:5px;margin-top:8px;flex-wrap:wrap}
+.aud-pill{font-family:'JetBrains Mono',monospace;font-size:11px;padding:3px 10px;border-radius:20px}
+
+/* PROMPT TOGGLE */
+.prompt-toggle{width:100%;padding:12px 16px;background:#F8FAFC;border:none;border-top:1px solid var(--border);color:var(--cyan);font-family:'JetBrains Mono',monospace;font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;transition:background .15s}
+.prompt-toggle:hover{background:#EEF4FF}
+.prompt-toggle .arr{transition:transform .25s;font-size:12px}
+.prompt-box{display:none;border-top:1px solid rgba(0,196,176,.15)}
+.prompt-box.open{display:block}
+.prompt-inner{background:#0F172A;padding:16px 18px}
+.prompt-label{font-family:'JetBrains Mono',monospace;font-size:11px;color:#00C4B0;letter-spacing:1px;margin-bottom:10px}
+.prompt-text{font-family:'JetBrains Mono',monospace;font-size:13px;color:#CBD5E1;line-height:1.8;white-space:pre-wrap;word-break:break-word}
+.prompt-text .var{color:#60A5FA;font-weight:700}
+.copy-btn{margin:12px 18px 16px;padding:9px 16px;background:rgba(0,196,176,.08);border:1px solid rgba(0,196,176,.25);border-radius:6px;color:var(--cyan);font-family:'JetBrains Mono',monospace;font-size:13px;cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:6px;width:fit-content}
+.copy-btn:hover{background:rgba(0,196,176,.15)}
+.copy-btn.copied{color:var(--green);border-color:rgba(5,150,105,.35);background:rgba(5,150,105,.06)}
+
+/* EMERGENCY */
+.em-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.em-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px 14px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.em-num{font-family:'Outfit',sans-serif;font-weight:900;font-size:32px;color:var(--orange);line-height:1;margin-bottom:5px}
+.em-desc{font-size:14px;color:var(--navy);font-weight:600;margin-bottom:3px}
+.em-op{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--gray-light)}
+.em-note{background:rgba(249,115,22,.05);border:1px solid rgba(249,115,22,.18);border-radius:8px;padding:14px 16px;margin-top:10px;font-size:14px;color:var(--gray)}
+.em-note strong{color:var(--orange)}
+
+/* WEEK2 BANNER */
+.week2{background:rgba(8,145,178,.05);border:1px solid rgba(8,145,178,.15);border-radius:10px;padding:14px 16px;margin-bottom:14px}
+.week2-label{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--soft-cyan);letter-spacing:1px;margin-bottom:7px}
+.week2-title{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:5px}
+.week2-body{font-size:14px;color:var(--gray)}
+
+/* HIDDEN BY FILTER */
+.card.hidden{display:none}
+
+footer{border-top:1px solid var(--border);padding:20px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--gray-light)}
+footer strong{background:linear-gradient(135deg,#00C4B0,#00C896);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+
+@media(min-width:600px){.grid{grid-template-columns:1fr 1fr}.em-grid{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:900px){.grid{grid-template-columns:repeat(3,1fr)}}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div>
+    <div class="logo"><span>IA</span>booleana</div>
+    <span class="logo-sub">Venezuela · Directorio de Ayuda con IA</span>
+  </div>
+  <div class="updated">Actualizado<br><strong>2 julio · 2026</strong></div>
+</header>
+
+<div class="phase">
+  <span class="phase-badge">● ACTIVO</span>
+  <span class="phase-badge" style="color:var(--soft-cyan);border-color:rgba(103,232,249,.3);background:rgba(103,232,249,.08)">SEMANA 2 · FASE DE RECUPERACIÓN</span>
+  <span class="phase-text">Terremoto Venezuela · <strong>24 junio 2026</strong> · Todos los recursos verificados</span>
+</div>
+
+<div class="diff">
+  <span class="diff-icon">🤖</span>
+  <span class="diff-text"><strong>El diferenciador:</strong> cada recurso incluye el prompt de IA exacto para usarlo mejor. Copia, pega en ChatGPT o Perplexity y actúa.</span>
+</div>
+
+<div class="filters">
+  <button class="f-btn active" onclick="filterAud('all',this)">Todos los recursos</button>
+  <button class="f-btn" onclick="filterAud('diaspora',this)">✈️ Estoy en la diáspora</button>
+  <button class="f-btn" onclick="filterAud('vzla',this)">🇻🇪 Estoy en Venezuela</button>
+</div>
+
+<div class="tabs">
+  <button class="tab active" onclick="showTab('buscar',this)">🔍 Buscar personas</button>
+  <button class="tab" onclick="showTab('donar',this)">💸 Donar</button>
+  <button class="tab" onclick="showTab('organizar',this)">🤝 Organizar ayuda</button>
+  <button class="tab" onclick="showTab('verificar',this)">✅ Verificar info</button>
+  <button class="tab" onclick="showTab('documentos',this)">📋 Documentos</button>
+  <button class="tab" onclick="showTab('emergencias',this)">📞 Emergencias</button>
+</div>
+
+<!-- BUSCAR -->
+<div id="buscar" class="section active">
+  <p class="section-title">Plataformas de búsqueda de personas desaparecidas</p>
+  <div class="grid">
+
+    <div class="card" data-vzla="true" data-diaspora="true">
+      <div class="card-head">
+        <div class="card-meta">
+          <span class="card-name">Desaparecidos Terremoto Venezuela</span>
+          <div class="badges"><span class="badge badge-verified">✓ Verificado</span><span class="badge" style="background:rgba(217,70,239,.1);color:#D946EF;border:1px solid rgba(217,70,239,.3)">+56.000 registros</span></div>
+        </div>
+        <a class="card-url" href="https://desaparecidosterremotovenezuela.com" target="_blank">desaparecidosterremotovenezuela.com ↗</a>
+        <p class="card-desc">La base de datos más grande. Busca por nombre, cédula o zona. Reporta o marca como localizado. Sin registro requerido.</p>
+        <div class="audience">
+          <span class="aud-pill" style="background:rgba(103,232,249,.08);color:var(--soft-cyan);border:1px solid rgba(103,232,249,.2)">✈️ Diáspora</span>
+          <span class="aud-pill" style="background:rgba(0,255,178,.08);color:var(--mint);border:1px solid rgba(0,255,178,.2)">🇻🇪 Venezuela</span>
+        </div>
+      </div>
+      <button class="prompt-toggle" onclick="togglePrompt(this)">
+        <span>🤖 Prompt de IA para usarlo mejor</span><span class="arr">▾</span>
+      </button>
+      <div class="prompt-box">
+        <div class="prompt-inner">
+          <p class="prompt-label">COPIA Y PEGA EN CHATGPT · CLAUDE · PERPLEXITY</p>
+          <p class="prompt-text">Redacta un mensaje de búsqueda de persona desaparecida
+tras el terremoto de Venezuela del 24 de junio de 2026.
+
+Datos:
+— Nombre completo: <span class="var">[nombre]</span>
+— Edad aproximada: <span class="var">[edad]</span>
+— Zona donde estaba: <span class="var">[barrio, ciudad, estado]</span>
+— Última vez visto/a: <span class="var">[hora y día]</span>
+— Descripción física: <span class="var">[altura, complexión, ropa]</span>
+— Contacto para info: <span class="var">[teléfono o Instagram]</span>
+
+Genera 3 versiones:
+1. WhatsApp (informal, menos de 150 palabras)
+2. Instagram (con emojis de alerta, hashtags incluidos)
+3. Twitter/X (menos de 280 caracteres)</p>
+        </div>
+        <button class="copy-btn" onclick="copyPrompt(this)">📋 Copiar prompt</button>
+      </div>
+    </div>
+
+    <div class="card" data-vzla="true" data-diaspora="true">
+      <div class="card-head">
+        <div class="card-meta">
+          <span class="card-name">Pacientes en hospitales</span>
+          <div class="badges"><span class="badge badge-verified">✓ Verificado</span></div>
+        </div>
+        <a class="card-url" href="https://pacientesterremotovzla.lovable.app" target="_blank">pacientesterremotovzla.lovable.app ↗</a>
+        <p class="card-desc">Listado de pacientes ingresados en hospitales. Busca por nombre o número de cédula. Actualización constante desde centros de salud.</p>
+        <div class="audience">
+          <span class="aud-pill" style="background:rgba(103,232,249,.08);color:var(--soft-cyan);border:1px solid rgba(103,232,249,.2)">✈️ Diáspora</span>
+          <span class="aud-pill" style="background:rgba(0,255,178,.08);color:var(--mint);border:1px solid rgba(0,255,178,.2)">🇻🇪 Venezuela</span>
+        </div>
+      </div>
+      <button class="prompt-toggle" onclick="togglePrompt(this)">
+        <span>🤖 Prompt de IA para usarlo mejor</span><span class="arr">▾</span>
+      </button>
+      <div class="prompt-box">
+        <div class="prompt-inner">
+          <p class="prompt-label">COPIA Y PEGA EN PERPLEXITY CON BÚSQUEDA WEB ACTIVADA</p>
+          <p class="prompt-text">Busca información sobre <span class="var">[nombre completo]</span>,
+cédula <span class="var">[número si la recuerdas]</span>, en registros
+hospitalarios del terremoto de Venezuela del 24 de junio 2026.
+
+Plataformas a revisar:
+— pacientesterremotovzla.lovable.app
+— desaparecidosterremotovenezuela.com
+— encuentralos.tecnosoft.dev
+
+Si no aparece, dime qué otros registros hospitalarios
+verificados existen para la zona de <span class="var">[estado/zona]</span>.</p>
+        </div>
+        <button class="copy-btn" onclick="copyPrompt(this)">📋 Copiar prompt</button>
+      </div>
+    </div>
+
+    <div class="card" data-vzla="true" data-diaspora="true">
+      <div class="card-head">
+        <div class="card-meta">
+          <span class="card-name">Personas ya localizadas</span>
+          <div class="badges"><span class="badge badge-verified">✓ Verificado</span></div>
+        </div>
+        <a class="card-url" href="https://encuentralos.tecnosoft.dev" target="_blank">encuentralos.tecnosoft.dev ↗</a>
+        <p class="card-desc">Consulta antes de publicar una búsqueda. Registra personas ya localizadas para que las familias dejen de buscar a quien ya está a salvo.</p>
+        <div class="audience">
+          <span class="aud-pill" style="background:rgba(103,232,249,.08);color:var(--soft-cyan);border:1px solid rgba(103,232,249,.2)">✈️ Diáspora</span>
+          <span class="aud-pill" style="background:rgba(0,255,178,.08);color:var(--mint);border:1px solid rgba(0,255,178,.2)">🇻🇪 Venezuela</span>
+        </div>
+      </div>
+      <button class="prompt-toggle" onclick="togglePrompt(this)">
+        <span>🤖 Prompt de IA para usarlo mejor</span><span class="arr">▾</span>
+      </button>
+      <div class="prompt-box">
+        <div class="prompt-inner">
+          <p class="prompt-label">COPIA Y PEGA EN CHATGPT</p>
+          <p class="prompt-text">Redacta un mensaje para informar que <span class="var">[nombre]</span>
+fue localizado/a tras el terremoto de Venezuela.
+
+Estado: <span class="var">[está bien / está herido/a pero estable / etc.]</span>
+Ubicación actual: <span class="var">[zona o ciudad]</span>
+
+El mensaje debe:
+— Indicar que está localizado/a claramente
+— Pedir que se deje de compartir la búsqueda activa
+— Agradecer a quienes ayudaron a difundir
+— Versión para WhatsApp e Instagram</p>
+        </div>
+        <button class="copy-btn" onclick="copyPrompt(this)">📋 Copiar prompt</button>
+      </div>
+    </div>
+
+    <div class="card" data-vzla="true" data-diaspora="true">
+      <div class="card-head">
+        <div class="card-meta">
+          <span class="card-name">Búsqueda de menores</span>
+          <div class="badges"><span class="badge badge-verified">✓ Verificado</span><span class="badge badge-warning">Menores de edad</span></div>
+        </div>
+        <a class="card-url" href="https://encuentralosvzla.com" target="_blank">encuentralosvzla.com ↗</a>
+        <p class="card-desc">Rastreo exclusivo de menores de edad separados de sus padres durante los sismos. Protocolo especializado para niños.</p>
+        <div class="audience">
+          <span class="aud-pill" style="background:rgba(103,232,249,.08);color:var(--soft-cyan);border:1px solid rgba(103,232,249,.2)">✈️ Diáspora</span>
+          <span class="aud-pill" style="background:rgba(0,255,178,.08);color:var(--mint);border:1px solid rgba(0,255,178,.2)">🇻🇪 Venezuela</span>
+        </div>
+      </div>
+      <button class="prompt-toggle" onclick="togglePrompt(this)">
+        <span>🤖 Prompt de IA para usarlo mejor</span><span class="arr">▾</span>
+      </button>
+      <div class="prompt-box">
+        <div class="prompt-inner">
+          <p class="prompt-label">COPIA Y PEGA EN CHATGPT</p>
+          <p class="prompt-text">Redacta un reporte formal de búsqueda de menor de edad
+separado durante el terremoto de Venezuela del 24 de junio 2026.
+
+Datos del menor:
+— Nombre completo: <span class="var">[nombre]</span>
+— Edad: <span class="var">[edad]</span>
+— Zona donde fue visto/a por última vez: <span class="var">[zona]</span>
+— Descripción física: <span class="var">[descripción]</span>
+— Señas particulares: <span class="var">[señas si hay]</span>
+
+Contacto familiar:
+— Nombre: <span class="var">[nombre]</span>
+— Teléfono: <span class="var">[número]</span>
+— Relación: <span class="var">[parentesco]</span>
+
+Formato: reporte estructurado para plataformas de búsqueda.</p>
+        </div>
+        <button class="copy-btn" onclick="copyPrompt(this)">📋 Copiar prompt</button>
+      </div>
+    </div>
+
+    <div class="card" data-diaspora="true">
+      <div class="card-head">
+        <div class="card-meta">
+          <span class="card-name">Cruz Roja · Restablecimiento de Contacto</span>
+          <div class="badges"><span class="badge badge-official">Oficial</span></div>
+        </div>
+        <a class="card-url" href="https://www.cruzroja.org.ve" target="_blank">cruzrojavenezuela.org.ve ↗</a>
+        <p class="card-desc">Protocolo oficial para restablecer contacto entre familiares separados. Especialmente útil si estás fuera de Venezuela y no encuentras a alguien por otros medios.</p>
+        <div class="audience">
+          <span class="aud-pill" style="background:rgba(103,232,249,.08);color:var(--soft-cyan);border:1px solid rgba(103,232,249,.2)">✈️ Diáspora</span>
+        </div>
+      </div>
+      <button class="prompt-toggle" onclick="togglePrompt(this)">
+        <span>🤖 Prompt de IA para usarlo mejor</span><span class="arr">▾</span>
+      </button>
+      <div class="prompt-box">
+        <div class="prompt-inner">
+          <p class="prompt-label">COPIA Y PEGA EN CHATGPT</p>
+          <p class="prompt-text">Redacta una solicitud formal de Restablecimiento de
+Contacto Familiar para la Cruz Roja Internacional.
+
+Datos del familiar buscado:
+— Nombre completo: <span class="var">[nombre]</span>
+— Última ubicación conocida: <span class="var">[zona, ciudad, estado]</span>
+— Relación con el solicitante: <span class="var">[parentesco]</span>
+
+Datos del solicitante (quien busca):
+— Nombre: <span class="var">[nombre]</span>
+— País de residencia: <span class="var">[país]</span>
+— Contacto: <span class="var">[teléfono o email]</span>
+
+Formato: carta formal en español para presentar
+a Cruz Roja Internacional o Cruz Roja del país
+de residencia del solicitante.</p>
+        </div>
+        <button class="copy-btn" onclick="copyPrompt(this)">📋 Copiar prompt</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- DONAR -->
+<div id="donar" class="section">
+  <p class="section-title">Canales de donación verificados · Solo fuentes oficiales</p>
+  <div class="grid">
+
+    <div class="card" data-vzla="true">
+      <div class="card-head">
+        <div class="card-meta">
+          <span class="card-name">Cruz Roja Venezuela · Ubii App</span>
+          <div class="badges"><span class="badge badge-verified">✓ Verificado</span></div>
+        </div>
+        <a class="card-url" href="https://cruzrojavenezuela.org.ve" target="_blank">cruzrojavenezuela.org.ve ↗</a>
+        <p class="card-desc">Desde Venezuela: Ubii App → botón "Cruz Roja". Banesco VES: 0134-0224-82-2243028658 / USD: 0134-1736-99-0001006051. Banesco duplica cada donación.</p>
+        <div class="audience">
+          <span class="aud-pill" style="background:rgba(0,255,178,.08);color:var(--mint);border:1px solid rgba(0,255,178,.2)">🇻🇪 Venezuela</span>
+        </div>
+      </div>
+      <button class="prompt-toggle" onclick="togglePrompt(this)">
+        <span>🤖 Prompt de IA para difundir la donación</span><span class="arr">▾</span>
+      </button>
+      <div class="prompt-box">
+        <div class="prompt-inner">
+          <p class="prompt-label">COPIA Y PEGA EN CHATGPT</p>
+          <p class="prompt-text">Redacta un mensaje para compartir en grupos de
+WhatsApp y Telegram invitando a donar a Cruz Roja
+Venezuela a través de Ubii App o Banesco.
+
+Detalles a incluir:
+— Ubii App → botón "Cruz Roja"
+— Banesco VES: 0134-0224-82-2243028658
+— Banesco duplica cada donación que ingrese
+
+Tono: urgente pero confiable. Sin exageraciones.
+Instrucciones claras, menos de 120 palabras.</p>
+        </div>
+        <button class="copy-btn" onclick="copyPrompt(this)">📋 Copiar prompt</button>
+      </div>
+    </div>
+
+    <div class="card" data-diaspora="true">
+      <div class="card-head">
+        <div class="card-meta">
+          <span class="card-name">Cáritas España · Bizum 0089</span>
+          <div class="badges"><span class="badge badge-verified">✓ Verificado</span></div>
+        </div>
+        <a class="card-url" href="https://caritasespana.es" target="_blank">caritasespana.es ↗</a>
+        <p class="card-desc">Desde España. Bizum al 0089 o transferencia bancaria. Red diocesana con presencia física en Venezuela. Activaron 300.000€ al inicio de la emergencia.</p>
+        <div class="audience">
+          <span class="aud-pill" style="background:rgba(103,232,249,.08);color:var(--soft-cyan);border:1px solid rgba(103,232,249,.2)">✈️ Diáspora · España</span>
+        </div>
+      </div>
+      <button class="prompt-toggle" onclick="togglePrompt(this)">
+        <span>🤖 Prompt de IA para organizar colecta</span><span class="arr">▾</span>
+      </button>
+      <div class="prompt-box">
+        <div class="prompt-inner">
+          <p class="prompt-label">COPIA Y PEGA EN CHATGPT</p>
+          <p class="prompt-text">Redacta un mensaje para invitar a amigos en España
+a donar a Cáritas para el terremoto de Venezuela.
+
+Método de donación: Bizum al número 0089
+Contexto: Cáritas tiene red diocesana activa en Venezuela,
+con equipos ya sobre el terreno desde el 24 de junio.
+
+Tono: cercano, sin presión, confiable.
+Máximo 100 palabras. Versiones para WhatsApp e Instagram.</p>
+        </div>
+        <button class="copy-btn" onclick="copyPrompt(this)">📋 Copiar prompt</button>
+      </div>
+    </div>
+
+    <div class="card" data-diaspora="true">
+      <div class="card-head">
+        <div class="card-meta">
+          <span class="card-name">GlobalGiving · Venezuela Earthquake Relief</span>
+          <div class="badges"><span class="badge badge-verified">✓ Verificado</span></div>
+        </div>
+        <a class="card-url" href="https://www.globalgiving.org" target="_blank">globalgiving.org ↗</a>
+        <p class="card-desc">Para donantes internacionales. Acepta múltiples monedas. Canaliza a organizaciones locales verificadas: comida, agua, refugio y atención médica.</p>
+        <div class="audience">
+          <span class="aud-pill" style="background:rgba(103,232,249,.08);color:var(--soft-cyan);border:1px solid rgba(103,232,249,.2)">✈️ Diáspora · Internacional</span>
+        </div>
+      </div>
+      <button class="prompt-toggle" onclick="togglePrompt(this)">
+        <span>🤖 Prompt para solicitar donación corporativa</span><span class="arr">▾</span>
+      </button>
+      <div class="prompt-box">
+        <div class="prompt-inner">
+          <p class="prompt-label">COPIA Y PEGA EN CHATGPT</p>
+          <p class="prompt-text">Redacta un email formal en inglés para solicitar
+una donación corporativa para el terremoto de Venezuela.
+
+Destinatario: <span class="var">[empresa o nombre del contacto]</span>
+Plataforma receptora: GlobalGiving Venezuela Earthquake Relief Fund
+Objetivo de recaudación: <span class="var">[monto]</span>
+Uso de los fondos: organizaciones locales verificadas,
+entrega directa de alimentos, agua, refugio y atención médica.
+
+Tono: profesional, con impacto claro y llamada a la acción.</p>
+        </div>
+        <button class="copy-btn" onclick="copyPrompt(this)">📋 Copiar prompt</button>
+      </div>
+    </div>
+
+    <div class="card" data-diaspora="true">
+      <div class="card-head">
+        <div class="card-meta">
+          <span class="card-name">Ria Money Transfer · Sin comisiones</span>
+          <div class="badges"><span class="badge badge-verified">✓ Verificado</span><span class="badge badge-warning">Hasta 15 julio 2026</span></div>
+        </div>
+        <a class="card-url" href="https://www.riamoneytransfer.com" target="_blank">riamoneytransfer.com ↗</a>
+        <p class="card-desc">Envío de dinero a Venezuela sin comisiones hasta el 15 de julio de 2026. Para apoyar directamente a familiares con dinero en efectivo.</p>
+        <div class="audience">
+          <span class="aud-pill" style="background:rgba(103,232,249,.08);color:var(--soft-cyan);border:1px solid rgba(103,232,249,.2)">✈️ Diáspora</span>
+        </div>
+      </div>
+      <button class="prompt-toggle" onclick="togglePrompt(this)">
+        <span>🤖 Prompt para comparar plataformas de envío</span><span class="arr">▾</span>
+      </button>
+      <div class="prompt-box">
+        <div class="prompt-inner">
+          <p class="prompt-label">COPIA Y PEGA EN CHATGPT CON BÚSQUEDA WEB</p>
+          <p class="prompt-text">Compara las plataformas de envío de dinero a Venezuela
+disponibles desde <span class="var">[España / México / Colombia / EEUU]</span> hoy.
+
+Plataformas a comparar: Ria, Remitly, Western Union, Zelle.
+
+Para cada una dame:
+— Comisión exacta por envío de 100 <span class="var">[€/$]</span>
+— Tipo de cambio aplicado
+— Cuánto llega realmente al receptor
+— Tiempo de entrega estimado
+— Métodos de pago disponibles
+
+Destaca cuál da más dinero al receptor hoy.</p>
+        </div>
+        <button class="copy-btn" onclick="copyPrompt(this)">📋 Copiar prompt</button>
+      </div>
+    </div>
+
+    <div class="card" data-diaspora="true">
+      <div class="card-head">
+        <div class="card-meta">
+          <span class="card-name">Save the Children · Venezuela</span>
+          <div class="badges"><span class="badge badge-verified">✓ Verificado</span></div>
+        </div>
+        <a class="card-url" href="https://www.savethechildren.es" target="_blank">savethechildren.es ↗</a>
+        <p class="card-desc">Enfocado en protección infantil, refugio y alimentación de niños y familias afectadas. Donaciones desde 30€. Equipos desplegados.</p>
+        <div class="audience">
+          <span class="aud-pill" style="background:rgba(103,232,249,.08);color:var(--soft-cyan);border:1px solid rgba(103,232,249,.2)">✈️ Diáspora</span>
+        </div>
+      </div>
+      <button class="prompt-toggle" onclick="togglePrompt(this)">
+        <span>🤖 Prompt para crear post de difusión</span><span class="arr">▾</span>
+      </button>
+      <div class="prompt-box">
+        <div class="prompt-inner">
+          <p class="prompt-label">COPIA Y PEGA EN CHATGPT</p>
+          <p class="prompt-text">Redacta un post para Instagram invitando a donar
+a Save the Children para el terremoto de Venezuela.
+
+Enfoque: impacto en niños y familias desplazadas.
+Donación desde 30€ en savethechildren.es
+Tono: emotivo pero sin manipulación. Honesto.
+CTA claro al final. Incluye hashtags relevantes.
+Máximo 150 palabras.</p>
+        </div>
+        <button class="copy-btn" onclick="copyPrompt(this)">📋 Copiar prompt</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ORGANIZAR -->
+<div id="organizar" class="section">
+  <p class="section-title">Coordinación de ayuda · Voluntariado · Acopio</p>
+  <div class="grid">
+
+    <div class="card" data-vzla="true" data-diaspora="true">
+      <div class="card-head">
+        <div class="card-meta">
+          <span class="card-name">Ayuda Para Venezuela · Centros de Acopio</span>
+          <div class="badges"><span class="badge badge-verified">✓ Verificado</span></div>
+        </div>
+        <a class="card-url" href="https://ayudaparavenezuela.com" target="_blank">ayudaparavenezuela.com ↗</a>
+        <p class="card-desc">Directorio de centros de acopio verificados por estado. Qué necesitan hospitales y refugios hoy. Antes de ir, confirma que sigue activo.</p>
+        <div class="audience">
+          <span class="aud-pill" style="background:rgba(103,232,249,.08);color:var(--soft-cyan);border:1px solid rgba(103,232,249,.2)">✈️ Diáspora</span>
+          <span class="aud-pill" style="background:rgba(0,255,178,.08);color:var(--mint);border:1px solid rgba(0,255,178,.2)">🇻🇪 Venezuela</span>
+        </div>
+      </div>
+      <button class="prompt-toggle" onclick="togglePrompt(this)">
+        <span>🤖 Prompt para organizar colecta completa</span><span class="arr">▾</span>
+      </button>
+      <div class="prompt-box">
+        <div class="prompt-inner">
+          <p class="prompt-label">COPIA Y PEGA EN CHATGPT · FLUJO COMPLETO</p>
+          <p class="prompt-text">Ayúdame a organizar una colecta solidaria para Venezuela
+en <span class="var">[mi ciudad / barrio / empresa / universidad]</span>.
+
+Necesito:
+1. Mensaje de convocatoria para WhatsApp e Instagram
+2. Plantilla de Google Sheets para registrar donantes
+3. Guión para informar a los donantes qué se necesita HOY
+   (alimentos no perecederos listos para comer, agua,
+   medicamentos básicos, ropa de abrigo)
+4. Mensaje de cierre con resultados para enviar al final
+
+Centro de entrega verificado: <span class="var">[nombre y dirección]</span>
+Fecha límite de la colecta: <span class="var">[fecha]</span>
+Tono: cercano y urgente, sin dramatismo innecesario.</p>
+        </div>
+        <button class="copy-btn" onclick="copyPrompt(this)">📋 Copiar prompt</button>
+      </div>
+    </div>
+
+    <div class="card" data-vzla="true">
+      <div class="card-head">
+        <div class="card-meta">
+          <span class="card-name">Mapa Colaborativo · Acceso Libre</span>
+          <div class="badges"><span class="badge badge-verified">✓ Verificado</span></div>
+        </div>
+        <a class="card-url" href="https://terremotove.netlify.app" target="_blank">terremotove.netlify.app ↗</a>
+        <p class="card-desc">Mapa de edificios colapsados y personas desaparecidas. Reporta en menos de 3 minutos, sin registro. Incluye directorio de 96 recursos ciudadanos.</p>
+        <div class="audience">
+          <span class="aud-pill" style="background:rgba(0,255,178,.08);color:var(--mint);border:1px solid rgba(0,255,178,.2)">🇻🇪 Venezuela</span>
+        </div>
+      </div>
+      <button class="prompt-toggle" onclick="togglePrompt(this)">
+        <span>🤖 Prompt para redactar un reporte de daños</span><span class="arr">▾</span>
+      </button>
+      <div class="prompt-box">
+        <div class="prompt-inner">
+          <p class="prompt-label">COPIA Y PEGA EN CHATGPT</p>
+          <p class="prompt-text">Redacta un reporte de daños estructurales claro y factual
+para reportar en el mapa colaborativo del terremoto de Venezuela.
+
+Ubicación: <span class="var">[dirección exacta o referencias cercanas]</span>
+Tipo de daño: <span class="var">[colapso total / parcial / grietas severas]</span>
+Personas atrapadas: <span class="var">[sí/no — si sí, cuántas y condición]</span>
+Acceso al lugar: <span class="var">[accesible / bloqueado / parcialmente]</span>
+Última vez verificado: <span class="var">[fecha y hora]</span>
+
+Formato: breve, factual, sin suposiciones.
+Solo lo que puedes confirmar directamente.</p>
+        </div>
+        <button class="copy-btn" onclick="copyPrompt(this)">📋 Copiar prompt</button>
+      </div>
+    </div>
+
+    <div class="card" data-vzla="true" data-diaspora="true">
+      <div class="card-head">
+        <div class="card-meta">
+          <span class="card-name">Punto de Apoyo Venezuela · Mapa en tiempo real</span>
+          <div class="badges"><span class="badge badge-verified">✓ Verificado</span></div>
+        </div>
+        <a class="card-url" href="https://www.puntodeapoyovenezuela.com" target="_blank">puntodeapoyovenezuela.com ↗</a>
+        <p class="card-desc">Mapa colaborativo de emergencia. Centros de acopio, hospitales que buscan donantes de sangre, ayuda ciudadana. Actualización cada 15 minutos.</p>
+        <div class="audience">
+          <span class="aud-pill" style="background:rgba(103,232,249,.08);color:var(--soft-cyan);border:1px solid rgba(103,232,249,.2)">✈️ Diáspora</span>
+          <span class="aud-pill" style="background:rgba(0,255,178,.08);color:var(--mint);border:1px solid rgba(0,255,178,.2)">🇻🇪 Venezuela</span>
+        </div>
+      </div>
+      <button class="prompt-toggle" onclick="togglePrompt(this)">
+        <span>🤖 Prompt para coordinar ayuda por zona</span><span class="arr">▾</span>
+      </button>
+      <div class="prompt-box">
+        <div class="prompt-inner">
+          <p class="prompt-label">COPIA Y PEGA EN PERPLEXITY</p>
+          <p class="prompt-text">¿Qué tipo de ayuda se necesita con mayor urgencia
+en <span class="var">[zona / estado venezolano]</span> en la semana 2
+tras el terremoto de Venezuela del 24 de junio 2026?
+
+Categorías: alimentos, agua, medicamentos,
+voluntarios, equipos de rescate, sangre.
+
+Dame las organizaciones activas en esa zona
+con sus canales de contacto verificados.</p>
+        </div>
+        <button class="copy-btn" onclick="copyPrompt(this)">📋 Copiar prompt</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- VERIFICAR -->
+<div id="verificar" class="section">
+  <p class="section-title">Herramientas para verificar antes de compartir</p>
+  <div class="grid">
+
+    <div class="card" data-vzla="true" data-diaspora="true">
+      <div class="card-head">
+        <div class="card-meta">
+          <span class="card-name">Perplexity · Verificación en tiempo real</span>
+          <div class="badges"><span class="badge badge-ai">Herramienta IA</span></div>
+        </div>
+        <a class="card-url" href="https://www.perplexity.ai" target="_blank">perplexity.ai ↗</a>
+        <p class="card-desc">Búsqueda con IA que cita fuentes verificadas. La herramienta más eficaz para contrastar información sobre el terremoto con referencias reales.</p>
+        <div class="audience">
+          <span class="aud-pill" style="background:rgba(103,232,249,.08);color:var(--soft-cyan);border:1px solid rgba(103,232,249,.2)">✈️ Diáspora</span>
+          <span class="aud-pill" style="background:rgba(0,255,178,.08);color:var(--mint);border:1px solid rgba(0,255,178,.2)">🇻🇪 Venezuela</span>
+        </div>
+      </div>
+      <button class="prompt-toggle" onclick="togglePrompt(this)">
+        <span>🤖 Prompt para verificar cualquier dato</span><span class="arr">▾</span>
+      </button>
+      <div class="prompt-box">
+        <div class="prompt-inner">
+          <p class="prompt-label">COPIA Y PEGA EN PERPLEXITY</p>
+          <p class="prompt-text">¿Es verdad que <span class="var">[dato concreto que quieres verificar]</span>
+ocurrió durante el terremoto de Venezuela
+del 24 de junio de 2026?
+
+Dame:
+— Fuentes que lo confirman o desmienten
+— Fecha de publicación de cada fuente
+— Si hay contradicción entre fuentes
+  oficiales y no oficiales
+— Veredicto final: verdadero / falso / sin confirmar</p>
+        </div>
+        <button class="copy-btn" onclick="copyPrompt(this)">📋 Copiar prompt</button>
+      </div>
+    </div>
+
+    <div class="card" data-vzla="true" data-diaspora="true">
+      <div class="card-head">
+        <div class="card-meta">
+          <span class="card-name">ChatGPT · Verificación de texto</span>
+          <div class="badges"><span class="badge badge-ai">Herramienta IA</span></div>
+        </div>
+        <a class="card-url" href="https://chat.openai.com" target="_blank">chat.openai.com ↗</a>
+        <p class="card-desc">Para verificar mensajes de WhatsApp, cadenas y noticias. Activa la búsqueda web antes de enviar el prompt para obtener resultados en tiempo real.</p>
+        <div class="audience">
+          <span class="aud-pill" style="background:rgba(103,232,249,.08);color:var(--soft-cyan);border:1px solid rgba(103,232,249,.2)">✈️ Diáspora</span>
+          <span class="aud-pill" style="background:rgba(0,255,178,.08);color:var(--mint);border:1px solid rgba(0,255,178,.2)">🇻🇪 Venezuela</span>
+        </div>
+      </div>
+      <button class="prompt-toggle" onclick="togglePrompt(this)">
+        <span>🤖 Prompt para verificar mensajes</span><span class="arr">▾</span>
+      </button>
+      <div class="prompt-box">
+        <div class="prompt-inner">
+          <p class="prompt-label">COPIA Y PEGA EN CHATGPT CON BÚSQUEDA WEB ACTIVADA</p>
+          <p class="prompt-text">Verifica si esta información sobre el terremoto
+de Venezuela del 24 de junio de 2026 es real:
+
+<span class="var">[Pega aquí el texto, mensaje o noticia]</span>
+
+Busca en: Reuters, BBC Mundo, DW Español,
+El Pitazo, CNN en Español y USGS.
+
+Dime:
+— ¿Es verdad, falsa o sin confirmar?
+— ¿Qué fuentes lo confirman o desmienten?
+— ¿Hay algo sospechoso en el texto?</p>
+        </div>
+        <button class="copy-btn" onclick="copyPrompt(this)">📋 Copiar prompt</button>
+      </div>
+    </div>
+
+    <div class="card" data-vzla="true" data-diaspora="true">
+      <div class="card-head">
+        <div class="card-meta">
+          <span class="card-name">Directorio Verificado · Venezuela Solidaria</span>
+          <div class="badges"><span class="badge badge-verified">✓ Verificado</span></div>
+        </div>
+        <a class="card-url" href="https://directorio-sismo.netlify.app" target="_blank">directorio-sismo.netlify.app ↗</a>
+        <p class="card-desc">Directorio ciudadano verificado con todas las categorías de ayuda. Referencia confiable para validar si una plataforma o iniciativa es legítima.</p>
+        <div class="audience">
+          <span class="aud-pill" style="background:rgba(103,232,249,.08);color:var(--soft-cyan);border:1px solid rgba(103,232,249,.2)">✈️ Diáspora</span>
+          <span class="aud-pill" style="background:rgba(0,255,178,.08);color:var(--mint);border:1px solid rgba(0,255,178,.2)">🇻🇪 Venezuela</span>
+        </div>
+      </div>
+      <button class="prompt-toggle" onclick="togglePrompt(this)">
+        <span>🤖 Prompt para verificar una plataforma</span><span class="arr">▾</span>
+      </button>
+      <div class="prompt-box">
+        <div class="prompt-inner">
+          <p class="prompt-label">COPIA Y PEGA EN PERPLEXITY</p>
+          <p class="prompt-text">¿Es legítima la plataforma o iniciativa
+"<span class="var">[nombre de la plataforma o cuenta]</span>"
+que pide donaciones para el terremoto de Venezuela?
+
+Busca:
+— Si aparece en directorio-sismo.netlify.app
+— Si tiene cobertura en medios verificados
+— Si su URL o cuenta tiene historial previo
+— Si hay reportes de fraude o irregularidades
+
+Dame un veredicto claro: confiable / sospechosa /
+no verificada, con las fuentes que lo respaldan.</p>
+        </div>
+        <button class="copy-btn" onclick="copyPrompt(this)">📋 Copiar prompt</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- DOCUMENTOS -->
+<div id="documentos" class="section">
+  <div class="week2">
+    <p class="week2-label">● SEMANA 2 · FASE DE RECUPERACIÓN</p>
+    <p class="week2-title">La fase de rescate terminó. Empieza la burocracia.</p>
+    <p class="week2-body">Documentos destruidos, solicitudes de ayuda, comunicación con seguros e instituciones. La IA puede hacer en 10 minutos lo que sin guía tarda semanas.</p>
+  </div>
+  <p class="section-title">Herramientas para gestionar documentos y trámites</p>
+  <div class="grid">
+
+    <div class="card" data-vzla="true" data-diaspora="true">
+      <div class="card-head">
+        <div class="card-meta">
+          <span class="card-name">ChatGPT · Solicitud de documentos perdidos</span>
+          <div class="badges"><span class="badge badge-ai">Herramienta IA</span></div>
+        </div>
+        <a class="card-url" href="https://chat.openai.com" target="_blank">chat.openai.com ↗</a>
+        <p class="card-desc">Redacta cartas formales para reponer cédula, pasaporte, actas de nacimiento o títulos de propiedad destruidos por el terremoto.</p>
+        <div class="audience">
+          <span class="aud-pill" style="background:rgba(103,232,249,.08);color:var(--soft-cyan);border:1px solid rgba(103,232,249,.2)">✈️ Diáspora</span>
+          <span class="aud-pill" style="background:rgba(0,255,178,.08);color:var(--mint);border:1px solid rgba(0,255,178,.2)">🇻🇪 Venezuela</span>
+        </div>
+      </div>
+      <button class="prompt-toggle" onclick="togglePrompt(this)">
+        <span>🤖 Prompt para solicitar documentos</span><span class="arr">▾</span>
+      </button>
+      <div class="prompt-box">
+        <div class="prompt-inner">
+          <p class="prompt-label">COPIA Y PEGA EN CHATGPT</p>
+          <p class="prompt-text">Redacta una solicitud formal para reponer documentos
+perdidos durante el terremoto de Venezuela del 24 de junio 2026.
+
+Documentos a reponer: <span class="var">[cédula / pasaporte / acta de nacimiento / título de propiedad]</span>
+Nombre del solicitante: <span class="var">[nombre completo]</span>
+Cédula (si la recuerdas): <span class="var">[número]</span>
+Última dirección registrada: <span class="var">[zona, estado]</span>
+Circunstancia: documentos destruidos por el terremoto
+
+Formato: carta formal para presentar ante
+<span class="var">[SAIME / Registro Civil / consulado venezolano en el exterior]</span>
+
+Incluye: fecha, datos del solicitante, solicitud
+de urgencia por desastre natural, y firma.</p>
+        </div>
+        <button class="copy-btn" onclick="copyPrompt(this)">📋 Copiar prompt</button>
+      </div>
+    </div>
+
+    <div class="card" data-vzla="true" data-diaspora="true">
+      <div class="card-head">
+        <div class="card-meta">
+          <span class="card-name">ChatGPT · Orden de reposición de documentos</span>
+          <div class="badges"><span class="badge badge-ai">Herramienta IA</span></div>
+        </div>
+        <a class="card-url" href="https://chat.openai.com" target="_blank">chat.openai.com ↗</a>
+        <p class="card-desc">No todos los documentos tienen la misma urgencia de reposición. La IA te dice cuál reponer primero y cómo, según tu situación específica.</p>
+        <div class="audience">
+          <span class="aud-pill" style="background:rgba(103,232,249,.08);color:var(--soft-cyan);border:1px solid rgba(103,232,249,.2)">✈️ Diáspora</span>
+          <span class="aud-pill" style="background:rgba(0,255,178,.08);color:var(--mint);border:1px solid rgba(0,255,178,.2)">🇻🇪 Venezuela</span>
+        </div>
+      </div>
+      <button class="prompt-toggle" onclick="togglePrompt(this)">
+        <span>🤖 Prompt para planificar reposición</span><span class="arr">▾</span>
+      </button>
+      <div class="prompt-box">
+        <div class="prompt-inner">
+          <p class="prompt-label">COPIA Y PEGA EN CHATGPT</p>
+          <p class="prompt-text">Mi familiar en Venezuela perdió los siguientes documentos
+en el terremoto del 24 de junio de 2026:
+<span class="var">[lista de documentos perdidos]</span>
+
+Su situación actual:
+— Está en: <span class="var">[Venezuela / en proceso de emigrar / ya en el exterior]</span>
+— Necesita acceder a: <span class="var">[ayuda humanitaria / trabajo / trámites bancarios]</span>
+
+Dime:
+1. Qué documento reponer primero y por qué
+2. El proceso paso a paso para cada uno en Venezuela
+3. Qué hacer si no puede desplazarse por daños en la zona</p>
+        </div>
+        <button class="copy-btn" onclick="copyPrompt(this)">📋 Copiar prompt</button>
+      </div>
+    </div>
+
+    <div class="card" data-diaspora="true">
+      <div class="card-head">
+        <div class="card-meta">
+          <span class="card-name">ChatGPT · Solicitud de ayuda a organizaciones</span>
+          <div class="badges"><span class="badge badge-ai">Herramienta IA</span></div>
+        </div>
+        <a class="card-url" href="https://chat.openai.com" target="_blank">chat.openai.com ↗</a>
+        <p class="card-desc">Para redactar solicitudes formales a Cruz Roja, ACNUR, consulados u otras organizaciones de apoyo desde el exterior.</p>
+        <div class="audience">
+          <span class="aud-pill" style="background:rgba(103,232,249,.08);color:var(--soft-cyan);border:1px solid rgba(103,232,249,.2)">✈️ Diáspora</span>
+        </div>
+      </div>
+      <button class="prompt-toggle" onclick="togglePrompt(this)">
+        <span>🤖 Prompt para solicitar ayuda institucional</span><span class="arr">▾</span>
+      </button>
+      <div class="prompt-box">
+        <div class="prompt-inner">
+          <p class="prompt-label">COPIA Y PEGA EN CHATGPT</p>
+          <p class="prompt-text">Redacta una solicitud de ayuda formal para
+<span class="var">[Cruz Roja / ACNUR / Cáritas / Consulado venezolano]</span>
+en <span class="var">[ciudad, país]</span>.
+
+Motivo: familiar afectado por el terremoto de Venezuela
+del 24 de junio de 2026 en <span class="var">[zona]</span>.
+
+Ayuda solicitada: <span class="var">[asistencia económica / apoyo psicológico / gestión de documentos / reasentamiento]</span>
+
+Datos del solicitante: <span class="var">[nombre, contacto, situación]</span>
+
+Idioma: <span class="var">[español / inglés]</span>
+Formato: carta formal, tono respetuoso y claro.</p>
+        </div>
+        <button class="copy-btn" onclick="copyPrompt(this)">📋 Copiar prompt</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- EMERGENCIAS -->
+<div id="emergencias" class="section">
+  <p class="section-title">Números de emergencia activos en Venezuela</p>
+  <div class="em-grid">
+    <div class="em-card"><div class="em-num">911</div><div class="em-desc">Policía / Emergencias</div><div class="em-op">Movistar · Digitel · Movilnet</div></div>
+    <div class="em-card"><div class="em-num">171</div><div class="em-desc">CICPC / Emergencias</div><div class="em-op">Cantv (línea fija)</div></div>
+    <div class="em-card"><div class="em-num">172</div><div class="em-desc">Bomberos</div><div class="em-op">Todas las operadoras</div></div>
+    <div class="em-card"><div class="em-num" style="font-size:22px">0800-RESCATE</div><div class="em-desc">Protección Civil</div><div class="em-op">Número gratuito</div></div>
+    <div class="em-card"><div class="em-num">*171</div><div class="em-desc">Emergencias Cantv</div><div class="em-op">Cantv móvil</div></div>
+    <div class="em-card"><div class="em-num">112</div><div class="em-desc">Emergencias</div><div class="em-op">Digitel</div></div>
+  </div>
+  <div class="em-note">
+    <strong>Si no hay conexión:</strong> Talk360, Yolla o Rebtel permiten llamar a número fijo venezolano sin que el receptor tenga internet. Pídele a ChatGPT que compare precios desde tu país antes de elegir.
+  </div>
+
+  <p class="section-title" style="margin-top:20px">Prompt de IA para preparar una llamada de emergencia</p>
+  <div class="grid" style="grid-template-columns:1fr">
+    <div class="card" data-vzla="true" data-diaspora="true">
+      <div class="card-head">
+        <div class="card-meta">
+          <span class="card-name">Prepara lo que vas a decir antes de llamar</span>
+          <div class="badges"><span class="badge badge-ai">Herramienta IA</span></div>
+        </div>
+        <p class="card-desc">En situaciones de estrés, tener el guión escrito reduce el tiempo en línea y comunica la información crítica sin errores.</p>
+      </div>
+      <button class="prompt-toggle" onclick="togglePrompt(this)">
+        <span>🤖 Prompt para el guión de llamada</span><span class="arr">▾</span>
+      </button>
+      <div class="prompt-box">
+        <div class="prompt-inner">
+          <p class="prompt-label">COPIA Y PEGA EN CHATGPT</p>
+          <p class="prompt-text">Dame un guión de 60 segundos para llamar al
+<span class="var">[911 / 171 / 172 / 0800-RESCATE]</span> en Venezuela.
+
+Situación:
+— Ubicación exacta: <span class="var">[dirección o referencias]</span>
+— Tipo de emergencia: <span class="var">[persona atrapada / herido / edificio colapsado]</span>
+— Número de personas afectadas: <span class="var">[número]</span>
+— Estado de las personas: <span class="var">[conscientes / heridas / sin respuesta]</span>
+— Acceso al lugar: <span class="var">[libre / bloqueado]</span>
+
+El guión debe ser claro, directo y en menos de 60 segundos.
+Prioridad: que el operador entienda ubicación y urgencia.</p>
+        </div>
+        <button class="copy-btn" onclick="copyPrompt(this)">📋 Copiar prompt</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <strong>IAbooleana</strong> · La IA, simplificada. · Directorio Venezuela · 2 julio 2026<br>
+  <span style="margin-top:6px;display:block">Todos los recursos han sido verificados antes de su publicación. Verifica siempre en los canales oficiales antes de donar.</span>
+</footer>
+
+<script>
+function showTab(id, btn) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+
+function togglePrompt(btn) {
+  const box = btn.nextElementSibling;
+  const arr = btn.querySelector('.arr');
+  const open = box.classList.toggle('open');
+  arr.style.transform = open ? 'rotate(180deg)' : '';
+}
+
+function filterAud(type, btn) {
+  document.querySelectorAll('.f-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.card').forEach(card => {
+    if (type === 'all') { card.classList.remove('hidden'); return; }
+    if (type === 'diaspora') { card.classList.toggle('hidden', card.dataset.diaspora !== 'true'); }
+    if (type === 'vzla') { card.classList.toggle('hidden', card.dataset.vzla !== 'true'); }
+  });
+}
+
+function copyPrompt(btn) {
+  const text = btn.closest('.prompt-box').querySelector('.prompt-text').innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = '✓ Prompt copiado';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = '📋 Copiar prompt'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+</script>
+</body>
+</html>
