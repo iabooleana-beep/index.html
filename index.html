@@ -262,7 +262,7 @@ footer strong{background:linear-gradient(135deg,#00E5CC,#00FFB2);
 
 <div class="ebar">
   <span class="edot"></span>
-  <span class="etxt">EMERGENCIA ACTIVA · TERREMOTO VENEZUELA · 24 JUN 2026 · RECURSOS VERIFICADOS · 2 JULIO</span>
+  <span class="etxt">EMERGENCIA ACTIVA · TERREMOTO VENEZUELA · 24 JUN 2026 · ACTUALIZADO <span id="ticker-date">2 JULIO</span></span>
 </div>
 
 <header>
@@ -286,10 +286,10 @@ footer strong{background:linear-gradient(135deg,#00E5CC,#00FFB2);
 
 <!-- FIX #13: stats reales -->
 <div class="statsbar">
-  <div><span class="stat-n">42</span><span class="stat-l">RECURSOS</span></div>
+  <div><span class="stat-n">93</span><span class="stat-l">RECURSOS</span></div>
   <div><span class="stat-n">13</span><span class="stat-l">CATEGORÍAS</span></div>
-  <div><span class="stat-n">38</span><span class="stat-l">PROMPTS DE IA</span></div>
-  <div><span class="stat-n" style="font-size:16px">2 jul</span><span class="stat-l">ACTUALIZADO</span></div>
+  <div><span class="stat-n">93</span><span class="stat-l">PROMPTS</span></div>
+  <div><span class="stat-n" style="font-size:16px" id="stat-date">2 jul</span><span class="stat-l">ACTUALIZADO</span></div>
 </div>
 
 <div class="controls">
@@ -362,10 +362,100 @@ footer strong{background:linear-gradient(135deg,#00E5CC,#00FFB2);
 
 <p class="sub-label" style="margin-top:20px">Prepárate antes de llamar</p>
 <div class="grid" style="grid-template-columns:1fr">
+
+<div class="card" data-vzla="true" data-diaspora="true" data-search="rescate venezuela ONU brigadas internacionales reporte">
+<div class="card-head" onclick="toggleCard(this.closest('.card'))">
+  <div class="card-top-row"><span class="card-name">Rescate Venezuela · Base de datos ONU</span><span class="chevron">▾</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
+  <a class="card-url" href="https://rescatevenezuela.info" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">rescatevenezuela.info ↗</a>
+  <p class="card-desc">Reporta desaparecidos a base de datos compartida con la ONU y brigadas internacionales. Cada dato puede llegar a equipos de rescate internacionales.</p>
+  <div class="card-aud"><span class="aud-tag aud-d">✈️ Diáspora</span><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
+</div>
+<div class="card-body">
+  <div class="prompt-header"><span class="prompt-label">Prompt · Reporte para brigadas internacionales</span><button class="copy-btn" onclick="copyPromptBtn(this)">Copiar</button></div>
+  <div class="prompt-bg"><p class="prompt-text">Quiero reportar a <span class="var">[nombre]</span>
+en rescatevenezuela.info.
+Última ubicación: <span class="var">[zona]</span>
+Edificio: <span class="var">[tipo]</span>
+¿Atrapado?: <span class="var">[sí/no/se desconoce]</span>
+Redacta el reporte para brigadas internacionales.</p></div>
+</div>
+</div>
+<div class="card" data-vzla="true" data-diaspora="true" data-search="venezuela rescate bomberos USB emergencias activo">
+<div class="card-head" onclick="toggleCard(this.closest('.card'))">
+  <div class="card-top-row"><span class="card-name">Venezuela Rescate · Bomberos USB</span><span class="chevron">▾</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
+  <a class="card-url" href="https://venezuelarescate.com" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">venezuelarescate.com ↗</a>
+  <p class="card-desc">Coordinación de rescate de los Bomberos USB. Reporta emergencias activas, pide ayuda y sigue operaciones en tiempo real. Coordinado por @bomberosusb.</p>
+  <div class="card-aud"><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
+</div>
+<div class="card-body">
+  <div class="prompt-header"><span class="prompt-label">Prompt · Reportar emergencia activa</span><button class="copy-btn" onclick="copyPromptBtn(this)">Copiar</button></div>
+  <div class="prompt-bg"><p class="prompt-text">Emergencia activa en venezuelarescate.com:
+Tipo: <span class="var">[atrapado / derrumbe / incendio]</span>
+Dirección: <span class="var">[dirección exacta]</span>
+Personas: <span class="var">[número y condición]</span>
+Acceso: <span class="var">[libre / bloqueado]</span>
+Dame reporte de 60 palabras, urgencia primero.</p></div>
+</div>
+</div>
+<div class="card" data-vzla="true" data-diaspora="true" data-search="red esperanza mapa SOS emergencia interactivo">
+<div class="card-head" onclick="toggleCard(this.closest('.card'))">
+  <div class="card-top-row"><span class="card-name">Red de Esperanza · Mapa de emergencia</span><span class="chevron">▾</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
+  <a class="card-url" href="https://red-de-esperanza-lime.vercel.app" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">red-de-esperanza-lime.vercel.app ↗</a>
+  <p class="card-desc">Mapa interactivo para reportar necesidades y enviar SOS con ubicación exacta. Incluye centros de acopio y coordinación por chat en vivo.</p>
+  <div class="card-aud"><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
+</div>
+<div class="card-body">
+  <div class="prompt-header"><span class="prompt-label">Prompt · Publicar SOS en el mapa</span><button class="copy-btn" onclick="copyPromptBtn(this)">Copiar</button></div>
+  <div class="prompt-bg"><p class="prompt-text">SOS en el mapa de emergencia:
+Tipo: <span class="var">[atrapado / urgencia / peligro]</span>
+Ubicación: <span class="var">[dirección o referencias]</span>
+Recursos: <span class="var">[rescate / ambulancia / alimentos]</span>
+Contacto: <span class="var">[teléfono]</span>
+Redacta el reporte conciso.</p></div>
+</div>
+</div>
+<div class="card" data-vzla="true" data-diaspora="true" data-search="de mano mano Venezuela necesidades hospitales refugios">
+<div class="card-head" onclick="toggleCard(this.closest('.card'))">
+  <div class="card-top-row"><span class="card-name">De Mano en Mano VE · Necesidades verificadas</span><span class="chevron">▾</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
+  <a class="card-url" href="https://www.demanoenmanove.org" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">demanoenmanove.org ↗</a>
+  <p class="card-desc">Información verificada sobre qué falta urgente en hospitales y refugios con fuentes sobre el terreno. Consulta antes de llevar ayuda para no llevar lo que ya sobra.</p>
+  <div class="card-aud"><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
+</div>
+<div class="card-body">
+  <div class="prompt-header"><span class="prompt-label">Prompt · Verificar qué hace falta antes de ir</span><button class="copy-btn" onclick="copyPromptBtn(this)">Copiar</button></div>
+  <div class="prompt-bg"><p class="prompt-text">¿Qué necesitan en <span class="var">[hospital / refugio / zona]</span>?
+Según demanoenmanove.org:
+¿Qué insumos faltan? ¿Qué tienen de sobra?
+¿Horario de recepción?
+Dame solo información operativa.</p></div>
+</div>
+</div>
+<div class="card" data-vzla="true" data-diaspora="true" data-search="rescate VE traslado evacuación presencial voluntarios">
+<div class="card-head" onclick="toggleCard(this.closest('.card'))">
+  <div class="card-top-row"><span class="card-name">Rescate VE · Logística de traslados</span><span class="chevron">▾</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
+  <a class="card-url" href="https://rescate-ve.vercel.app" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">rescate-ve.vercel.app ↗</a>
+  <p class="card-desc">Coordina traslados y rescate presencial. Conecta a quienes necesitan evacuación con voluntarios que tienen vehículos disponibles.</p>
+  <div class="card-aud"><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
+</div>
+<div class="card-body">
+  <div class="prompt-header"><span class="prompt-label">Prompt · Solicitar o coordinar traslado</span><button class="copy-btn" onclick="copyPromptBtn(this)">Copiar</button></div>
+  <div class="prompt-bg"><p class="prompt-text">Traslado en rescate-ve.vercel.app:
+Tipo: <span class="var">[necesito evacuación / ofrezco traslado]</span>
+Origen: <span class="var">[dirección]</span> → Destino: <span class="var">[hospital / refugio]</span>
+Personas: <span class="var">[número]</span>
+Redacta el anuncio para la plataforma.</p></div>
+</div>
+</div>
+
 <div class="card" data-vzla="true" data-diaspora="true" data-search="nexovida alertas réplicas tiempo real sismos zonas riesgo balance">
 <div class="card-head" onclick="toggleCard(this.closest('.card'))">
   <div class="card-top-row"><span class="card-name">Nexo Vida · Alertas de réplicas en tiempo real</span><span class="chevron">▾</span></div>
-  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)">Actualizado: 3 jul</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
   <a class="card-url" href="https://nexovida.io" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">nexovida.io ↗</a>
   <p class="card-desc">Alertas de réplicas sísmicas, zonas de riesgo actualizadas y balance oficial del terremoto en tiempo real. La fuente más directa para mantenerse informado sin depender de grupos de WhatsApp.</p>
   <div class="card-aud"><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
@@ -401,7 +491,7 @@ Necesito saber:
     <span class="status-dot active"></span>
     <span class="status-text active">● Activo</span>
     <span class="pill pill-ai">IA</span>
-    <span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)">Actualizado: 2 jul</span>
+    <span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span>
   </div>
   <a class="card-url" href="https://chat.openai.com" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">chat.openai.com ↗</a>
   <p class="card-desc">En situaciones de estrés, el guión escrito reduce el tiempo en línea y comunica la información crítica sin errores ni bloqueos.</p>
@@ -455,7 +545,7 @@ Prioridad: ubicación y urgencia primero.</p>
     <span class="status-dot active"></span>
     <span class="status-text active">● Activo</span>
     <span class="pill pill-v">✓ Verificado</span><span class="pill pill-w">+56.000 registros</span>
-    <span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)">Actualizado: 2 jul</span>
+    <span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span>
   </div>
   <a class="card-url" href="https://desaparecidosterremotovenezuela.com" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">desaparecidosterremotovenezuela.com ↗</a>
   <p class="card-desc">La base de datos más grande. Busca por nombre, cédula o zona. Reporta o marca como localizado. Sin registro requerido.</p>
@@ -496,7 +586,7 @@ Genera 3 versiones:
     <span class="status-dot active"></span>
     <span class="status-text active">● Activo</span>
     <span class="pill pill-v">✓ Verificado</span><span class="pill pill-n">Diáspora</span>
-    <span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)">Actualizado: 2 jul</span>
+    <span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span>
   </div>
   <a class="card-url" href="https://venezuelatebusca.com" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">venezuelatebusca.com ↗</a>
   <p class="card-desc">Plataforma creada por la diáspora venezolana para la búsqueda de familiares. Funciona en paralelo con desaparecidosterremotovenezuela.com — reporta en ambas para mayor alcance.</p>
@@ -529,7 +619,7 @@ Incluye:
 <div class="card" data-vzla="true" data-diaspora="true" data-search="venetebusca buscar desaparecidos reporte ciudadano">
 <div class="card-head" onclick="toggleCard(this.closest('.card'))">
   <div class="card-top-row"><span class="card-name">Vene Te Busca · Búsqueda y reporte</span><span class="chevron">▾</span></div>
-  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)">Actualizado: 3 jul</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
   <a class="card-url" href="https://venetebusca.com" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">venetebusca.com ↗</a>
   <p class="card-desc">Busca o reporta a alguien desaparecido tras el terremoto. Plataforma ciudadana actualizada en tiempo real. Reporta en esta Y en desaparecidosterremotovenezuela.com para mayor alcance.</p>
   <div class="card-aud"><span class="aud-tag aud-d">✈️ Diáspora</span><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
@@ -552,7 +642,7 @@ de cómo buscar y qué campos completar.</p></div>
 <div class="card" data-vzla="true" data-diaspora="true" data-search="heridos hospital registro nombre cédula 2000 personas">
 <div class="card-head" onclick="toggleCard(this.closest('.card'))">
   <div class="card-top-row"><span class="card-name">Heridos Venezuela · Registro por hospital</span><span class="chevron">▾</span></div>
-  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)">Actualizado: 3 jul</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
   <a class="card-url" href="https://heridosvenezuela.com" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">heridosvenezuela.com ↗</a>
   <p class="card-desc">Registro con más de 2.000 personas cargadas, organizado por hospital. Si sabes que tu familiar resultó herido, empieza aquí antes de llamar a cada hospital individualmente.</p>
   <div class="card-aud"><span class="aud-tag aud-d">✈️ Diáspora</span><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
@@ -579,7 +669,7 @@ los hospitales de <span class="var">[zona/estado]</span>.</p></div>
 <div class="card" data-vzla="true" data-diaspora="true" data-search="reencuentro niños menores familia separados verificación">
 <div class="card-head" onclick="toggleCard(this.closest('.card'))">
   <div class="card-top-row"><span class="card-name">Reencuentro Seguro · Niños sin familia</span><span class="chevron">▾</span></div>
-  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)">Actualizado: 3 jul</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
   <a class="card-url" href="https://reencuentroseguro.com" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">reencuentroseguro.com ↗</a>
   <p class="card-desc">Plataforma para reunificar niños separados de sus familias tras el terremoto. Requiere verificación presencial. Si encontraste un menor solo o buscas a un niño, repórtalo aquí.</p>
   <div class="card-aud"><span class="aud-tag aud-d">✈️ Diáspora</span><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
@@ -606,6 +696,147 @@ para la verificación presencial.</p></div>
 </div>
 </div>
 
+
+<div class="card" data-vzla="true" data-diaspora="true" data-search="localizados encontrados sismo ya aparecieron">
+<div class="card-head" onclick="toggleCard(this.closest('.card'))">
+  <div class="card-top-row"><span class="card-name">Localizados Venezuela · Personas ya encontradas</span><span class="chevron">▾</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
+  <a class="card-url" href="https://localizadosvenezuela.com" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">localizadosvenezuela.com ↗</a>
+  <p class="card-desc">Registro de personas ya localizadas tras el sismo. Consulta aquí antes de publicar una búsqueda — si tu familiar ya fue encontrado y está registrado, puedes saberlo al instante.</p>
+  <div class="card-aud"><span class="aud-tag aud-d">✈️ Diáspora</span><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
+</div>
+<div class="card-body">
+  <div class="prompt-header"><span class="prompt-label">Prompt · Verificar si ya está localizado antes de buscar</span><button class="copy-btn" onclick="copyPromptBtn(this)">Copiar</button></div>
+  <div class="prompt-bg"><p class="prompt-text">Antes de publicar una búsqueda de <span class="var">[nombre completo]</span>,
+ayúdame a verificar si ya aparece como localizado.
+
+Plataformas donde consultar:
+— localizadosvenezuela.com
+— encuentralos.tecnosoft.dev
+— venetebusca.com (sección "localizados")
+
+Si aparece: ¿qué datos muestra y cómo confirmar que es la persona correcta?
+Si no aparece: dame el siguiente paso recomendado para continuar la búsqueda.</p></div>
+</div>
+</div>
+<div class="card" data-vzla="true" data-diaspora="true" data-search="helpmap hospitales trasladados nombre localizar">
+<div class="card-head" onclick="toggleCard(this.closest('.card'))">
+  <div class="card-top-row"><span class="card-name">HelpMap VZla · Personas trasladadas a hospitales</span><span class="chevron">▾</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
+  <a class="card-url" href="https://www.helpmapvzla.net" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">helpmapvzla.net ↗</a>
+  <p class="card-desc">Información verificada de personas trasladadas a hospitales tras el terremoto. Busca por nombre para localizar a un familiar que pudo haber sido llevado a un centro médico.</p>
+  <div class="card-aud"><span class="aud-tag aud-d">✈️ Diáspora</span><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
+</div>
+<div class="card-body">
+  <div class="prompt-header"><span class="prompt-label">Prompt · Buscar en hospitales por traslado</span><button class="copy-btn" onclick="copyPromptBtn(this)">Copiar</button></div>
+  <div class="prompt-bg"><p class="prompt-text">Busco información sobre <span class="var">[nombre completo]</span>
+que pudo haber sido trasladado/a a un hospital
+tras el terremoto de Venezuela del 24 de junio 2026.
+
+Plataformas específicas para búsqueda de hospitalizados:
+— helpmapvzla.net (trasladados verificados)
+— heridosvenezuela.com (heridos por hospital)
+— pre.palmedico.ai (IA asistida)
+
+Dame instrucciones para buscar en cada una
+y qué hacer si no aparece en ninguna.</p></div>
+</div>
+</div>
+<div class="card" data-vzla="true" data-diaspora="true" data-search="venezuela reporta centros salud refugios buscar">
+<div class="card-head" onclick="toggleCard(this.closest('.card'))">
+  <div class="card-top-row"><span class="card-name">Venezuela Reporta · Centros de salud y refugios</span><span class="chevron">▾</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
+  <a class="card-url" href="https://venezuelareporta.org" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">venezuelareporta.org ↗</a>
+  <p class="card-desc">Búsqueda de personas afectadas en centros de salud y refugios registrados tras el terremoto. Cruza datos de múltiples fuentes en un solo lugar.</p>
+  <div class="card-aud"><span class="aud-tag aud-d">✈️ Diáspora</span><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
+</div>
+<div class="card-body">
+  <div class="prompt-header"><span class="prompt-label">Prompt · Buscar en centros de salud y refugios</span><button class="copy-btn" onclick="copyPromptBtn(this)">Copiar</button></div>
+  <div class="prompt-bg"><p class="prompt-text">Busca a <span class="var">[nombre completo]</span> en registros de centros
+de salud y refugios del terremoto de Venezuela 2026.
+
+Vía venezuelareporta.org dame:
+— Si aparece en algún centro de salud registrado
+— Si aparece en algún refugio habilitado
+— Fecha y hora del último registro si lo hay
+
+También revisa buscaenlistasvzla.info
+y helpmapvzla.net para cruzar información.</p></div>
+</div>
+</div>
+<div class="card" data-vzla="true" data-diaspora="true" data-search="busca listas vzla hospitales refugios cédula">
+<div class="card-head" onclick="toggleCard(this.closest('.card'))">
+  <div class="card-top-row"><span class="card-name">Busca en Listas VZla · Hospitales y refugios</span><span class="chevron">▾</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
+  <a class="card-url" href="https://buscaenlistasvzla.info" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">buscaenlistasvzla.info ↗</a>
+  <p class="card-desc">Escribe nombre, apellido o cédula y busca en las listas de hospitales y refugios registrados. Interfaz simple, sin registro, resultados en segundos.</p>
+  <div class="card-aud"><span class="aud-tag aud-d">✈️ Diáspora</span><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
+</div>
+<div class="card-body">
+  <div class="prompt-header"><span class="prompt-label">Prompt · Preparar los datos exactos antes de buscar</span><button class="copy-btn" onclick="copyPromptBtn(this)">Copiar</button></div>
+  <div class="prompt-bg"><p class="prompt-text">Voy a buscar a <span class="var">[nombre completo]</span>
+en buscaenlistasvzla.info.
+
+Ayúdame a organizar todos los datos que tengo
+para hacer la búsqueda lo más completa posible:
+— Variantes del nombre (apodos, nombres alternativos)
+— Número de cédula exacto o aproximado
+— Alias o como lo conocen en su comunidad
+— Zona donde estaba cuando ocurrió el sismo
+
+Dame también una lista de 3 plataformas alternativas
+si no aparece en esta.</p></div>
+</div>
+</div>
+<div class="card" data-vzla="true" data-diaspora="true" data-search="red ayuda venezuela IA foto búsqueda desaparecidos">
+<div class="card-head" onclick="toggleCard(this.closest('.card'))">
+  <div class="card-top-row"><span class="card-name">Red Ayuda Venezuela · Búsqueda con IA</span><span class="chevron">▾</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
+  <a class="card-url" href="https://redayudavenezuela.com" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">redayudavenezuela.com ↗</a>
+  <p class="card-desc">Red de emergencia con IA para buscar desaparecidos por nombre o foto. Estadísticas en tiempo real y directorio de voluntarios, puntos de ayuda y mascotas.</p>
+  <div class="card-aud"><span class="aud-tag aud-d">✈️ Diáspora</span><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
+</div>
+<div class="card-body">
+  <div class="prompt-header"><span class="prompt-label">Prompt · Buscar usando la plataforma de IA</span><button class="copy-btn" onclick="copyPromptBtn(this)">Copiar</button></div>
+  <div class="prompt-bg"><p class="prompt-text">Voy a usar redayudavenezuela.com para buscar a
+<span class="var">[nombre completo]</span> desaparecido/a
+tras el terremoto de Venezuela del 24 de junio 2026.
+
+Datos disponibles:
+— Nombre: <span class="var">[nombre]</span>
+— Foto disponible: <span class="var">[sí/no]</span>
+— Zona donde estaba: <span class="var">[zona]</span>
+
+Dame instrucciones de cómo usar la búsqueda por IA
+de esta plataforma y qué datos necesita para dar
+los mejores resultados.</p></div>
+</div>
+</div>
+<div class="card" data-vzla="true" data-diaspora="true" data-search="encuentrame VE whatsapp IA búsqueda automática">
+<div class="card-head" onclick="toggleCard(this.closest('.card'))">
+  <div class="card-top-row"><span class="card-name">Encuéntrame VE · Búsqueda por WhatsApp con IA</span><span class="chevron">▾</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
+  <a class="card-url" href="https://encuentrame-ve.com" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">encuentrame-ve.com ↗</a>
+  <p class="card-desc">Envía nombre, cédula o última zona conocida por WhatsApp. La IA revisa múltiples páginas automáticamente, cruza coincidencias y te responde con resultados unificados.</p>
+  <div class="card-aud"><span class="aud-tag aud-d">✈️ Diáspora</span><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
+</div>
+<div class="card-body">
+  <div class="prompt-header"><span class="prompt-label">Prompt · Preparar el mensaje para enviar por WhatsApp</span><button class="copy-btn" onclick="copyPromptBtn(this)">Copiar</button></div>
+  <div class="prompt-bg"><p class="prompt-text">Voy a usar encuentrame-ve.com para buscar a
+<span class="var">[nombre completo]</span> por WhatsApp.
+
+Ayúdame a redactar el mensaje exacto que debo enviar
+con todos los datos en el formato que la plataforma necesita:
+— Nombre completo
+— Cédula (si la tengo)
+— Última zona conocida
+— Descripción física si es necesario
+
+También dime: ¿qué tiempo suele tardar en responder
+y qué hacer si no da resultados?</p></div>
+</div>
+</div>
+
 <div class="card" data-vzla="true" data-diaspora="true" data-search="pacientes hospitales cédula ingresados salud médico">
 <div class="card-head" onclick="toggleCard(this.closest('.card'))">
   <div class="card-top-row">
@@ -616,7 +847,7 @@ para la verificación presencial.</p></div>
     <span class="status-dot active"></span>
     <span class="status-text active">● Activo</span>
     <span class="pill pill-v">✓ Verificado</span>
-    <span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)">Actualizado: 2 jul</span>
+    <span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span>
   </div>
   <a class="card-url" href="https://pacientesterremotovzla.lovable.app" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">pacientesterremotovzla.lovable.app ↗</a>
   <p class="card-desc">Listado actualizado de pacientes ingresados en hospitales venezolanos. Busca por nombre o número de cédula. Si aparece, ya sabes dónde está.</p>
@@ -653,7 +884,7 @@ y cómo contactarlos directamente.</p>
     <span class="status-dot active"></span>
     <span class="status-text active">● Activo</span>
     <span class="pill pill-v">✓ Verificado</span>
-    <span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)">Actualizado: 2 jul</span>
+    <span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span>
   </div>
   <a class="card-url" href="https://encuentralos.tecnosoft.dev" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">encuentralos.tecnosoft.dev ↗</a>
   <p class="card-desc">Consulta antes de publicar una búsqueda. Si tu familiar ya fue localizado y está aquí, puedes informar a quienes aún lo buscan y que dejen de difundir la búsqueda activa.</p>
@@ -691,7 +922,7 @@ Versiones para: WhatsApp (informal), Instagram (con ✅) y grupos de Telegram</p
     <span class="status-dot active"></span>
     <span class="status-text active">● Activo</span>
     <span class="pill pill-v">✓ Verificado</span><span class="pill pill-w">Menores de edad</span>
-    <span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)">Actualizado: 2 jul</span>
+    <span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span>
   </div>
   <a class="card-url" href="https://encuentralosvzla.com" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">encuentralosvzla.com ↗</a>
   <p class="card-desc">Plataforma especializada en menores de edad separados de sus familias durante los sismos. Protocolo específico para niños, diferente del de adultos.</p>
@@ -733,7 +964,7 @@ Formato para publicar en encuentralosvzla.com y en redes.</p>
     <span class="status-dot active"></span>
     <span class="status-text active">● Activo</span>
     <span class="pill pill-o">Oficial</span>
-    <span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)">Actualizado: 2 jul</span>
+    <span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span>
   </div>
   <a class="card-url" href="https://www.cruzroja.org.ve" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">cruzrojavenezuela.org.ve ↗</a>
   <p class="card-desc">Protocolo oficial internacional para restablecer contacto entre familiares separados. Actívalo si llevas varios días sin noticias y los otros recursos no han funcionado.</p>
@@ -785,7 +1016,7 @@ Incluye número de referencia si tienes uno previo.</p>
 <div class="card" data-vzla="true" data-diaspora="true" data-search="hospitales clínicas operativos salud médicos ingresados zona">
 <div class="card-head" onclick="toggleCard(this.closest('.card'))">
   <div class="card-top-row"><span class="card-name">Hospitales en Venezuela · Pacientes ingresados</span><span class="chevron">▾</span></div>
-  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)">Actualizado: 2 jul</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
   <a class="card-url" href="https://hospitalesenvenezuela.com" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">hospitalesenvenezuela.com ↗</a>
   <p class="card-desc">Consulta qué hospitales y clínicas tienen pacientes ingresados. Filtra por nombre, cédula o zona. Datos actualizados desde los propios centros de salud.</p>
   <div class="card-aud"><span class="aud-tag aud-d">✈️ Diáspora</span><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
@@ -810,7 +1041,7 @@ Cruz Roja Venezuela, Ministerio de Salud.</p></div>
 <div class="card" data-vzla="true" data-diaspora="false" data-search="yesos 3d fracturas impresora ortopédicos archivo">
 <div class="card-head" onclick="toggleCard(this.closest('.card'))">
   <div class="card-top-row"><span class="card-name">Yesos ortopédicos en 3D · Archivo descargable</span><span class="chevron">▾</span></div>
-  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-n">Recurso especial</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)">Actualizado: 2 jul</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-n">Recurso especial</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
   <a class="card-url" href="https://terremotove.netlify.app" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">terremotove.netlify.app ↗</a>
   <p class="card-desc">Si tienes una impresora 3D, puedes imprimir yesos ortopédicos para víctimas con fracturas. Descarga el archivo, imprime y coordina la entrega con equipos médicos locales.</p>
   <div class="card-aud"><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
@@ -833,7 +1064,7 @@ Necesito saber:
 <div class="card" data-vzla="true" data-diaspora="true" data-search="psicología médico online gratuito consulta salud mental">
 <div class="card-head" onclick="toggleCard(this.closest('.card'))">
   <div class="card-top-row"><span class="card-name">Atención médica y psicológica gratuita online</span><span class="chevron">▾</span></div>
-  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)">Actualizado: 2 jul</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
   <a class="card-url" href="https://nueveonce.com" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">nueveonce.com ↗</a>
   <p class="card-desc">Consultas médicas y psicológicas online gratuitas para afectados. También acepta voluntarios sanitarios. Sin registro, sin espera, en español.</p>
   <div class="card-aud"><span class="aud-tag aud-d">✈️ Diáspora</span><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
@@ -859,7 +1090,7 @@ Dime:
 <div class="card" data-vzla="true" data-diaspora="true" data-search="shock emocional psicólogos voluntarios apoyo duelo">
 <div class="card-head" onclick="toggleCard(this.closest('.card'))">
   <div class="card-top-row"><span class="card-name">Soporte emocional de urgencia</span><span class="chevron">▾</span></div>
-  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)">Actualizado: 2 jul</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
   <a class="card-url" href="https://venemergencia.com" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">venemergencia.com ↗</a>
   <p class="card-desc">Asistencia psicológica gratuita de urgencia. Psicólogos venezolanos voluntarios disponibles online. Sin lista de espera, sin formularios largos.</p>
   <div class="card-aud"><span class="aud-tag aud-d">✈️ Diáspora</span><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
@@ -886,7 +1117,7 @@ Dime en términos simples, sin jerga psicológica:
 <div class="card" data-vzla="true" data-diaspora="true" data-search="psicológico confidencial gratuito secuelas estamoscontigo apoyo">
 <div class="card-head" onclick="toggleCard(this.closest('.card'))">
   <div class="card-top-row"><span class="card-name">Estamos Contigo · Apoyo psicológico confidencial</span><span class="chevron">▾</span></div>
-  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)">Actualizado: 3 jul</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
   <a class="card-url" href="https://estamoscontigovzla.com" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">estamoscontigovzla.com ↗</a>
   <p class="card-desc">Acompañamiento psicológico gratuito y confidencial para quienes viven las secuelas de los sismos. Disponible tanto para afectados en Venezuela como para familiares de la diáspora.</p>
   <div class="card-aud"><span class="aud-tag aud-d">✈️ Diáspora</span><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
@@ -911,10 +1142,85 @@ Ayúdame a:
 </div>
 </div>
 
+
+<div class="card" data-vzla="true" data-diaspora="true" data-search="escucha activa psicológico gratuito voluntarios apoyo">
+<div class="card-head" onclick="toggleCard(this.closest('.card'))">
+  <div class="card-top-row"><span class="card-name">Escucha Activa · Apoyo psicológico gratuito</span><span class="chevron">▾</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
+  <a class="card-url" href="https://escuchactiva.com" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">escuchactiva.com ↗</a>
+  <p class="card-desc">Asistencia psicológica gratuita para afectados por el terremoto. Psicólogos voluntarios disponibles para escucharte. Sin listas de espera.</p>
+  <div class="card-aud"><span class="aud-tag aud-d">✈️ Diáspora</span><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
+</div>
+<div class="card-body">
+  <div class="prompt-header"><span class="prompt-label">Prompt · Preparar qué decir en la primera llamada</span><button class="copy-btn" onclick="copyPromptBtn(this)">Copiar</button></div>
+  <div class="prompt-bg"><p class="prompt-text">Voy a contactar a un psicólogo en escuchactiva.com
+por las secuelas del terremoto de Venezuela.
+
+Mi situación:
+— Lo que viví: <span class="var">[describe brevemente]</span>
+— Síntomas principales: <span class="var">[insomnio / ansiedad / llanto / parálisis]</span>
+— Hace cuántos días: <span class="var">[número]</span>
+
+Ayúdame a resumir mi situación en 2 minutos
+para el inicio de la sesión y dime qué 3 cosas
+debo priorizar comentar en la primera llamada.</p></div>
+</div>
+</div>
+<div class="card" data-vzla="true" data-diaspora="true" data-search="médicos venezuela consulta médica online gratis voluntarios">
+<div class="card-head" onclick="toggleCard(this.closest('.card'))">
+  <div class="card-top-row"><span class="card-name">Médicos por Venezuela · Consulta online gratis</span><span class="chevron">▾</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
+  <a class="card-url" href="https://www.medicosporvenezuela.org" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">medicosporvenezuela.org ↗</a>
+  <p class="card-desc">Consulta médica o psicológica online gratuita para afectados. También acepta médicos y especialistas voluntarios que quieran sumarse a la respuesta.</p>
+  <div class="card-aud"><span class="aud-tag aud-d">✈️ Diáspora</span><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
+</div>
+<div class="card-body">
+  <div class="prompt-header"><span class="prompt-label">Prompt · Describir síntomas físicos para consulta médica</span><button class="copy-btn" onclick="copyPromptBtn(this)">Copiar</button></div>
+  <div class="prompt-bg"><p class="prompt-text">Voy a tener una consulta médica gratuita online
+a través de medicosporvenezuela.org.
+
+Síntomas o situación médica:
+— Tipo de lesión o síntoma: <span class="var">[describe]</span>
+— Cuándo apareció: <span class="var">[fecha o días]</span>
+— Intensidad del 1 al 10: <span class="var">[número]</span>
+— Medicamentos que tomo: <span class="var">[lista o "ninguno"]</span>
+— Alergias conocidas: <span class="var">[lista o "ninguna"]</span>
+
+Ayúdame a describir los síntomas con claridad
+médica para aprovechar mejor la consulta
+y no olvidar nada importante.</p></div>
+</div>
+</div>
+<div class="card" data-vzla="true" data-diaspora="true" data-search="palmedico IA hospitalizados búsqueda inteligencia artificial">
+<div class="card-head" onclick="toggleCard(this.closest('.card'))">
+  <div class="card-top-row"><span class="card-name">PalmMédico · Pacientes hospitalizados con IA</span><span class="chevron">▾</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
+  <a class="card-url" href="https://pre.palmedico.ai" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">pre.palmedico.ai ↗</a>
+  <p class="card-desc">Listado de pacientes ingresados en hospitales tras el terremoto, con búsqueda asistida por inteligencia artificial. Cruza múltiples bases de datos de hospitales en segundos.</p>
+  <div class="card-aud"><span class="aud-tag aud-d">✈️ Diáspora</span><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
+</div>
+<div class="card-body">
+  <div class="prompt-header"><span class="prompt-label">Prompt · Optimizar la búsqueda asistida por IA</span><button class="copy-btn" onclick="copyPromptBtn(this)">Copiar</button></div>
+  <div class="prompt-bg"><p class="prompt-text">Voy a usar la búsqueda de IA en pre.palmedico.ai
+para localizar a <span class="var">[nombre completo]</span>
+hospitalizado/a tras el terremoto de Venezuela.
+
+Datos disponibles:
+— Nombre: <span class="var">[nombre completo]</span>
+— Cédula: <span class="var">[número o "no disponible"]</span>
+— Zona del sismo donde estaba: <span class="var">[zona]</span>
+— Tipo de lesión posible: <span class="var">[si lo sé]</span>
+
+Dame el orden de prioridad de las plataformas
+de búsqueda hospitalaria a consultar y qué
+puedo hacer si no aparece en ninguna.</p></div>
+</div>
+</div>
+
 <div class="card" data-vzla="true" data-diaspora="true" data-search="duelo trauma psicólogos semana dos recuperación">
 <div class="card-head" onclick="toggleCard(this.closest('.card'))">
   <div class="card-top-row"><span class="card-name">Psicólogos voluntarios · Semana 2 y más allá</span><span class="chevron">▾</span></div>
-  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-n">Semana 2</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)">Actualizado: 2 jul</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-n">Semana 2</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
   <p class="card-desc">En la segunda semana el shock físico baja y el emocional sube. El directorio ciudadano tiene listado actualizado de psicólogos venezolanos con sesiones gratuitas online.</p>
   <div class="card-aud"><span class="aud-tag aud-d">✈️ Diáspora</span><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
 </div>
@@ -952,10 +1258,33 @@ Responde sin tecnicismos, de forma directa.</p></div>
   </ul>
 </div>
 <div class="grid">
+<div class="card" data-vzla="true" data-diaspora="false" 
+<div class="card" data-vzla="true" data-diaspora="true" data-search="ayuda venezuela app refugios mapa zonas apoyo cercano">
+<div class="card-head" onclick="toggleCard(this.closest('.card'))">
+  <div class="card-top-row"><span class="card-name">Ayuda Venezuela App · Refugios y puntos de apoyo</span><span class="chevron">▾</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
+  <a class="card-url" href="https://ayudavenezuela.app" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">ayudavenezuela.app ↗</a>
+  <p class="card-desc">Plataforma ciudadana con mapa de refugios, centros de acopio y zonas de apoyo. Busca el punto más cercano a tu ubicación. Sin registro, sin app que instalar.</p>
+  <div class="card-aud"><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
+</div>
+<div class="card-body">
+  <div class="prompt-header"><span class="prompt-label">Prompt · Encontrar refugio más cercano</span><button class="copy-btn" onclick="copyPromptBtn(this)">Copiar</button></div>
+  <div class="prompt-bg"><p class="prompt-text">Busca refugio o punto de apoyo más cercano
+a <span class="var">[mi zona o dirección]</span>.
+
+Usando ayudavenezuela.app dame:
+— Nombre y dirección del refugio próximo
+— Si acepta personas ahora mismo
+— Servicios disponibles (comida, agua, médico)
+— Si acepta familias con niños o mayores
+Si está saturado, dame las 2 opciones siguientes.</p></div>
+</div>
+</div>
+
 <div class="card" data-vzla="true" data-diaspora="false" data-search="refugio zona segura alojamiento temporal vivienda dañada">
 <div class="card-head" onclick="toggleCard(this.closest('.card'))">
   <div class="card-top-row"><span class="card-name">Zona Segura · Mapa de zonas evaluadas</span><span class="chevron">▾</span></div>
-  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)">Actualizado: 2 jul</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
   <a class="card-url" href="https://zonasegura.up.railway.app" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">zonasegura.up.railway.app ↗</a>
   <p class="card-desc">Mapa actualizado con zonas evaluadas como seguras o peligrosas tras el terremoto. Antes de volver a casa o enviar a alguien, verifica el estado de la zona.</p>
   <div class="card-aud"><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
@@ -981,7 +1310,7 @@ Para cada opción dame:
 <div class="card" data-vzla="true" data-diaspora="false" data-search="centros refugio alojamiento temporal estado damnificados">
 <div class="card-head" onclick="toggleCard(this.closest('.card'))">
   <div class="card-top-row"><span class="card-name">Centros de refugio habilitados · Por estado</span><span class="chevron">▾</span></div>
-  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)">Actualizado: 2 jul</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
   <a class="card-url" href="https://ayudaparavenezuela.com" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">ayudaparavenezuela.com ↗</a>
   <p class="card-desc">Directorio actualizado de centros de refugio y alojamiento temporal habilitados por estado. Incluye capacidad, servicios disponibles y cómo llegar.</p>
   <div class="card-aud"><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
@@ -1004,7 +1333,7 @@ Para cada centro dame:
 <div class="card" data-vzla="false" data-diaspora="true" data-search="alojamiento diáspora exterior coordinar familias refugio">
 <div class="card-head" onclick="toggleCard(this.closest('.card'))">
   <div class="card-top-row"><span class="card-name">Pedir alojamiento temporal desde la diáspora</span><span class="chevron">▾</span></div>
-  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-n">Diáspora</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)">Actualizado: 2 jul</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-n">Diáspora</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
   <a class="card-url" href="https://veneconnect.com" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">veneconnect.com ↗</a>
   <p class="card-desc">Si estás fuera de Venezuela y un familiar necesita alojamiento temporal urgente, usa este prompt para coordinar desde la distancia con las redes de apoyo disponibles.</p>
   <div class="card-aud"><span class="aud-tag aud-d">✈️ Diáspora</span></div>
@@ -1044,7 +1373,7 @@ Necesito saber:
 <div class="card" data-vzla="true" data-diaspora="false" data-search="sangre donar hospital banco grupos sanguíneos o+ a+">
 <div class="card-head" onclick="toggleCard(this.closest('.card'))">
   <div class="card-top-row"><span class="card-name">Dónde donar sangre · Por zona</span><span class="chevron">▾</span></div>
-  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)">Actualizado: 2 jul</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
   <a class="card-url" href="https://www.puntodeapoyovenezuela.com" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">puntodeapoyovenezuela.com ↗</a>
   <p class="card-desc">El mapa colaborativo actualiza en tiempo real qué hospitales están solicitando donantes de sangre urgente y en qué grupos sanguíneos. Verifica antes de ir.</p>
   <div class="card-aud"><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
@@ -1069,7 +1398,7 @@ Usa fuentes de las últimas 48 horas.</p></div>
 <div class="card" data-vzla="false" data-diaspora="true" data-search="sangre donar diáspora exterior organizar convocatoria">
 <div class="card-head" onclick="toggleCard(this.closest('.card'))">
   <div class="card-top-row"><span class="card-name">Coordinar donantes de sangre · Diáspora</span><span class="chevron">▾</span></div>
-  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-ai">IA</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)">Actualizado: 2 jul</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-ai">IA</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
   <a class="card-url" href="https://chat.openai.com" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">chat.openai.com ↗</a>
   <p class="card-desc">Si estás fuera de Venezuela y quieres organizar una convocatoria de donantes en tu ciudad para luego coordinar el transporte o compensación económica, usa este prompt.</p>
   <div class="card-aud"><span class="aud-tag aud-d">✈️ Diáspora</span></div>
@@ -1109,10 +1438,30 @@ Necesito:
   </ul>
 </div>
 <div class="grid">
+<div class="card" data-vzla="true" data-diaspora="false" 
+<div class="card" data-vzla="true" data-diaspora="true" data-search="donar seguro verificador campañas legítimas fraude estafas">
+<div class="card-head" onclick="toggleCard(this.closest('.card'))">
+  <div class="card-top-row"><span class="card-name">Donar Seguro · Verificador de campañas</span><span class="chevron">▾</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
+  <a class="card-url" href="https://donarseguro.com" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">donarseguro.com ↗</a>
+  <p class="card-desc">Directorio verificado de campañas legítimas para el terremoto de Venezuela. Antes de donar a cualquier iniciativa, comprueba aquí si está validada para evitar estafas.</p>
+  <div class="card-aud"><span class="aud-tag aud-d">✈️ Diáspora</span><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
+</div>
+<div class="card-body">
+  <div class="prompt-header"><span class="prompt-label">Prompt · Verificar si una campaña es legítima</span><button class="copy-btn" onclick="copyPromptBtn(this)">Copiar</button></div>
+  <div class="prompt-bg"><p class="prompt-text">¿Es legítima la campaña "<span class="var">[nombre o URL]</span>"?
+Busca en donarseguro.com:
+— ¿Está en el directorio verificado?
+— ¿Tiene historial antes del 24 jun 2026?
+— ¿Hay reportes de fraude?
+Veredicto: CONFIABLE / SOSPECHOSA / NO VERIFICADA</p></div>
+</div>
+</div>
+
 <div class="card" data-vzla="true" data-diaspora="false" data-search="cruz roja ubii banesco donar venezuela duplica">
 <div class="card-head" onclick="toggleCard(this.closest('.card'))">
   <div class="card-top-row"><span class="card-name">Cruz Roja Venezuela · Ubii App + Banesco</span><span class="chevron">▾</span></div>
-  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)">Actualizado: 2 jul</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
   <a class="card-url" href="https://cruzrojavenezuela.org.ve" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">cruzrojavenezuela.org.ve ↗</a>
   <p class="card-desc">Donación directa desde Venezuela. Ubii App → botón 'Cruz Roja'. Banesco VES: 0134-0224-82-2243028658 / USD: 0134-1736-99-0001006051. Banesco duplica cada donación recibida.</p>
   <div class="card-aud"><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
@@ -1136,7 +1485,7 @@ Versiones para WhatsApp, Telegram e Instagram.</p></div>
 <div class="card" data-vzla="false" data-diaspora="true" data-search="cáritas españa bizum 0089 donar euros">
 <div class="card-head" onclick="toggleCard(this.closest('.card'))">
   <div class="card-top-row"><span class="card-name">Cáritas España · Bizum 0089</span><span class="chevron">▾</span></div>
-  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)">Actualizado: 2 jul</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
   <a class="card-url" href="https://caritasespana.es" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">caritasespana.es ↗</a>
   <p class="card-desc">Desde España. Bizum al 0089 o transferencia bancaria. Cáritas tiene red diocesana con presencia física en Venezuela y movilizó 300.000€ desde el primer día.</p>
   <div class="card-aud"><span class="aud-tag aud-d">✈️ Diáspora</span></div>
@@ -1160,7 +1509,7 @@ Versión para WhatsApp (informal) e Instagram (con hashtags).</p></div>
 <div class="card" data-vzla="false" data-diaspora="true" data-search="globalgiving internacional donación dólares multinacional corporativo">
 <div class="card-head" onclick="toggleCard(this.closest('.card'))">
   <div class="card-top-row"><span class="card-name">GlobalGiving · Venezuela Earthquake Relief</span><span class="chevron">▾</span></div>
-  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)">Actualizado: 2 jul</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
   <a class="card-url" href="https://www.globalgiving.org" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">globalgiving.org ↗</a>
   <p class="card-desc">Para donantes internacionales. Acepta tarjeta, PayPal y múltiples monedas. Canaliza a organizaciones locales verificadas en Venezuela para entrega directa.</p>
   <div class="card-aud"><span class="aud-tag aud-d">✈️ Diáspora</span></div>
@@ -1185,7 +1534,7 @@ Máximo 300 palabras.</p></div>
 <div class="card" data-vzla="false" data-diaspora="true" data-search="ria remesas dinero enviar venezuela sin comisiones familia">
 <div class="card-head" onclick="toggleCard(this.closest('.card'))">
   <div class="card-top-row"><span class="card-name">Ria Money Transfer · Sin comisiones hasta 15 julio</span><span class="chevron">▾</span></div>
-  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span class="pill pill-w">Hasta 15 jul</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)">Actualizado: 2 jul</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span class="pill pill-w">Hasta 15 jul</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
   <a class="card-url" href="https://www.riamoneytransfer.com" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">riamoneytransfer.com ↗</a>
   <p class="card-desc">Envío de dinero a Venezuela sin comisiones hasta el 15 de julio de 2026. La forma más directa de apoyar a familiares sin intermediarios y con el 100% llegando al receptor.</p>
   <div class="card-aud"><span class="aud-tag aud-d">✈️ Diáspora</span></div>
@@ -1225,10 +1574,34 @@ Nota: Ria tiene comisiones eliminadas hasta el 15 de julio 2026.</p></div>
 </div>
 <div class="grid">
 
+
+<div class="card" data-vzla="true" data-diaspora="true" data-search="ayuda venezuela 2026 coordinación territorial voluntarios necesidades">
+<div class="card-head" onclick="toggleCard(this.closest('.card'))">
+  <div class="card-top-row"><span class="card-name">Ayuda Venezuela 2026 · Coordinación territorial</span><span class="chevron">▾</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
+  <a class="card-url" href="https://ayudavenezuela2026.com" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">ayudavenezuela2026.com ↗</a>
+  <p class="card-desc">Plataforma de coordinación territorial para organizar ayuda humanitaria. Publica necesidades, ofrece ayuda (médicos, voluntarios, rescatistas, equipos) y conecta con iniciativas en tu zona.</p>
+  <div class="card-aud"><span class="aud-tag aud-d">✈️ Diáspora</span><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
+</div>
+<div class="card-body">
+  <div class="prompt-header"><span class="prompt-label">Prompt · Publicar oferta o necesidad de ayuda</span><button class="copy-btn" onclick="copyPromptBtn(this)">Copiar</button></div>
+  <div class="prompt-bg"><p class="prompt-text">Quiero publicar en ayudavenezuela2026.com una
+<span class="var">[necesidad / oferta de ayuda]</span>.
+
+— Tipo de ayuda: <span class="var">[médico / voluntario / rescatista / equipo / alimentos / transporte]</span>
+— Descripción exacta: <span class="var">[describe]</span>
+— Zona: <span class="var">[barrio, ciudad, estado]</span>
+— Disponibilidad: <span class="var">[inmediata / en X horas]</span>
+— Contacto: <span class="var">[WhatsApp / teléfono]</span>
+
+Redacta el anuncio específico y localizado.</p></div>
+</div>
+</div>
+
 <div class="card" data-vzla="true" data-diaspora="true" data-search="vzlayuda red ayuda directa personas cerca sin cuenta">
 <div class="card-head" onclick="toggleCard(this.closest('.card'))">
   <div class="card-top-row"><span class="card-name">VzlaYuda · Red de ayuda directa entre personas</span><span class="chevron">▾</span></div>
-  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)">Actualizado: 3 jul</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
   <a class="card-url" href="https://vzlayuda.com" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">vzlayuda.com ↗</a>
   <p class="card-desc">Conecta directamente con quien necesita algo cerca de ti o con quien puede ayudarte. Sin crear cuenta, al instante. La coordinación ciudadana más directa del terremoto.</p>
   <div class="card-aud"><span class="aud-tag aud-d">✈️ Diáspora</span><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
@@ -1255,7 +1628,7 @@ con el link vzlayuda.com al final.</p></div>
 <div class="card" data-vzla="true" data-diaspora="true" data-search="mapa daños La Guaira radarvzla zonas estado acceso">
 <div class="card-head" onclick="toggleCard(this.closest('.card'))">
   <div class="card-top-row"><span class="card-name">Radar VZla · Mapa de daños actualizado</span><span class="chevron">▾</span></div>
-  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)">Actualizado: 3 jul</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
   <a class="card-url" href="https://radarvzla.com" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">radarvzla.com ↗</a>
   <p class="card-desc">Mapa actualizado con los daños reportados, especialmente en La Guaira. Verifica el estado de una zona antes de ir, enviar a alguien o coordinar operaciones de ayuda.</p>
   <div class="card-aud"><span class="aud-tag aud-d">✈️ Diáspora</span><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
@@ -1282,7 +1655,7 @@ sobre solo descriptiva (qué pasó).</p></div>
 <div class="card" data-vzla="true" data-diaspora="true" data-search="acopio centros donaciones organizar colecta coordinación">
 <div class="card-head" onclick="toggleCard(this.closest('.card'))">
   <div class="card-top-row"><span class="card-name">Ayuda Para Venezuela · Centros de Acopio por Estado</span><span class="chevron">▾</span></div>
-  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)">Actualizado: 2 jul</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
   <a class="card-url" href="https://ayudaparavenezuela.com" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">ayudaparavenezuela.com ↗</a>
   <p class="card-desc">Directorio actualizado de centros de acopio verificados por estado. Muestra qué necesitan hospitales y refugios hoy — la lista cambia constantemente. Confirma antes de ir.</p>
   <div class="card-aud"><span class="aud-tag aud-d">✈️ Diáspora</span><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
@@ -1310,7 +1683,7 @@ Tono: cercano y urgente, sin dramatismo innecesario.</p></div>
 <div class="card" data-vzla="true" data-diaspora="false" data-search="mapa edificios colapsados reportar daños voluntariado">
 <div class="card-head" onclick="toggleCard(this.closest('.card'))">
   <div class="card-top-row"><span class="card-name">Mapa Colaborativo · Reporta en 3 minutos</span><span class="chevron">▾</span></div>
-  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)">Actualizado: 2 jul</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
   <a class="card-url" href="https://terremotove.netlify.app" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">terremotove.netlify.app ↗</a>
   <p class="card-desc">Mapa colaborativo de edificios colapsados, personas desaparecidas y zonas de acceso bloqueado. Reporta sin registro en menos de 3 minutos. Ya tiene más de 96 recursos ciudadanos.</p>
   <div class="card-aud"><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
@@ -1334,7 +1707,7 @@ Evita adjetivos emocionales — solo hechos verificables.</p></div>
 <div class="card" data-vzla="true" data-diaspora="true" data-search="punto apoyo mapa tiempo real voluntarios coordinación zona">
 <div class="card-head" onclick="toggleCard(this.closest('.card'))">
   <div class="card-top-row"><span class="card-name">Punto de Apoyo Venezuela · Tiempo real</span><span class="chevron">▾</span></div>
-  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)">Actualizado: 2 jul</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
   <a class="card-url" href="https://www.puntodeapoyovenezuela.com" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">puntodeapoyovenezuela.com ↗</a>
   <p class="card-desc">Mapa colaborativo actualizado cada 15 minutos. Muestra centros de acopio activos, hospitales que buscan donantes de sangre y coordinación de ayuda ciudadana.</p>
   <div class="card-aud"><span class="aud-tag aud-d">✈️ Diáspora</span><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
@@ -1362,7 +1735,7 @@ Usa fuentes de los últimos 3 días.</p></div>
 <div class="card" data-vzla="true" data-diaspora="true" data-search="traslado transporte personas afectadas evacuación movilidad">
 <div class="card-head" onclick="toggleCard(this.closest('.card'))">
   <div class="card-top-row"><span class="card-name">Traslado de personas afectadas · Coordinación</span><span class="chevron">▾</span></div>
-  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)">Actualizado: 2 jul</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
   <a class="card-url" href="https://terremotove.netlify.app" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">terremotove.netlify.app ↗</a>
   <p class="card-desc">Coordinación de traslado gratuito para personas que no pueden moverse solas: heridos, personas mayores, familias con niños que necesitan evacuar o llegar a centros médicos o de refugio.</p>
   <div class="card-aud"><span class="aud-tag aud-v">🇻🇪 Venezuela</span><span class="aud-tag aud-d">✈️ Diáspora</span></div>
@@ -1393,7 +1766,7 @@ Necesito saber:
 <div class="card" data-vzla="true" data-diaspora="true" data-search="transporte insumos camión fletes ayuda humanitaria logística">
 <div class="card-head" onclick="toggleCard(this.closest('.card'))">
   <div class="card-top-row"><span class="card-name">Transporte de insumos a zonas afectadas</span><span class="chevron">▾</span></div>
-  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)">Actualizado: 2 jul</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
   <a class="card-url" href="https://ayudaparavenezuela.com" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">ayudaparavenezuela.com ↗</a>
   <p class="card-desc">Coordinación de camiones, camionetas y vehículos que llevan ayuda humanitaria desde ciudades a zonas de difícil acceso. Si tienes vehículo o conoces a alguien con capacidad de carga, úsalo.</p>
   <div class="card-aud"><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
@@ -1426,7 +1799,7 @@ Necesito:
 <div class="card" data-vzla="true" data-search="ofrezco vehículo trasladar heridos voluntario conductor">
 <div class="card-head" onclick="toggleCard(this.closest('.card'))">
   <div class="card-top-row"><span class="card-name">Tengo vehículo y quiero ayudar</span><span class="chevron">▾</span></div>
-  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)">Actualizado: 2 jul</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
   <a class="card-url" href="https://www.puntodeapoyovenezuela.com" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">puntodeapoyovenezuela.com ↗</a>
   <p class="card-desc">Si tienes carro, moto o camioneta y quieres ofrecerte como conductor voluntario para traslado de heridos, familias o insumos, este prompt te ayuda a anunciarte y conectar con quien te necesita.</p>
   <div class="card-aud"><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
@@ -1458,10 +1831,59 @@ Genera un anuncio claro y conciso para publicar en:
 <p class="sub-label">📦 Centros de acopio</p>
 <div class="grid">
 
+
+<div class="card" data-vzla="true" data-diaspora="true" data-search="ayudo venezuela mapa centros acopio estado ciudad filtrar">
+<div class="card-head" onclick="toggleCard(this.closest('.card'))">
+  <div class="card-top-row"><span class="card-name">Ayudo Venezuela · Mapa de centros de acopio</span><span class="chevron">▾</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
+  <a class="card-url" href="https://ayudovenezuela.com" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">ayudovenezuela.com ↗</a>
+  <p class="card-desc">Plataforma comunitaria con mapa filtrable de centros de acopio por estado y ciudad. Muestra qué donar en cada centro, contactos de emergencia y formulario para reportar nuevos centros.</p>
+  <div class="card-aud"><span class="aud-tag aud-d">✈️ Diáspora</span><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
+</div>
+<div class="card-body">
+  <div class="prompt-header"><span class="prompt-label">Prompt · Encontrar el centro de acopio más cercano</span><button class="copy-btn" onclick="copyPromptBtn(this)">Copiar</button></div>
+  <div class="prompt-bg"><p class="prompt-text">¿Cuál es el centro de acopio más cercano a
+<span class="var">[mi zona, ciudad, estado]</span>
+que esté activo y recibiendo donaciones ahora?
+
+Usando ayudovenezuela.com y otras fuentes verificadas:
+— Dame nombre y dirección exacta del centro
+— Qué insumos acepta en este momento
+— Horario de recepción
+— Contacto directo si existe
+— Si hay algún centro que necesite donantes urgentes
+  en esa zona específica</p></div>
+</div>
+</div>
+<div class="card" data-vzla="true" data-diaspora="true" data-search="centros acopio venezuela listado completo mundial donaciones">
+<div class="card-head" onclick="toggleCard(this.closest('.card'))">
+  <div class="card-top-row"><span class="card-name">Centros de Acopio Venezuela · Listado completo</span><span class="chevron">▾</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
+  <a class="card-url" href="https://centro-de-acopio-ven.vercel.app" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">centro-de-acopio-ven.vercel.app ↗</a>
+  <p class="card-desc">Listado completo de centros de acopio en Venezuela y en el mundo donde puedes entregar o recibir donaciones de alimentos, ropa, medicinas e insumos de primera necesidad.</p>
+  <div class="card-aud"><span class="aud-tag aud-d">✈️ Diáspora</span><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
+</div>
+<div class="card-body">
+  <div class="prompt-header"><span class="prompt-label">Prompt · Coordinar donación a un centro específico</span><button class="copy-btn" onclick="copyPromptBtn(this)">Copiar</button></div>
+  <div class="prompt-bg"><p class="prompt-text">Quiero llevar donaciones al centro de acopio
+en <span class="var">[zona, ciudad, estado venezolano]</span>.
+
+Antes de ir, necesito saber:
+1. Qué insumos necesitan más urgentemente hoy
+   (usando centro-de-acopio-ven.vercel.app)
+2. Qué NO llevar porque ya tienen de sobra
+3. Horario exacto de recepción
+4. Si hay forma de coordinar la entrega de antemano
+   para no hacer cola innecesaria
+5. Si aceptan donaciones monetarias en lugar de
+   insumos físicos y cómo</p></div>
+</div>
+</div>
+
 <div class="card" data-vzla="true" data-diaspora="true" data-search="acopio qué llevar donar centro colecta necesitan">
 <div class="card-head" onclick="toggleCard(this.closest('.card'))">
   <div class="card-top-row"><span class="card-name">Qué llevar al centro de acopio HOY</span><span class="chevron">▾</span></div>
-  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)">Actualizado: 2 jul</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
   <a class="card-url" href="https://ayudaparavenezuela.com" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">ayudaparavenezuela.com ↗</a>
   <p class="card-desc">La lista de necesidades de los centros de acopio cambia cada día. Antes de recoger o comprar donaciones, verifica qué se necesita ahora mismo para no saturar con lo que ya sobra.</p>
   <div class="card-aud"><span class="aud-tag aud-v">🇻🇪 Venezuela</span><span class="aud-tag aud-d">✈️ Diáspora</span></div>
@@ -1494,7 +1916,7 @@ Usa fuentes de los últimos 2 días.</p>
 <div class="card" data-vzla="true" data-search="crear punto acopio barrio comunidad cómo montar">
 <div class="card-head" onclick="toggleCard(this.closest('.card'))">
   <div class="card-top-row"><span class="card-name">Cómo crear un punto de acopio en tu barrio</span><span class="chevron">▾</span></div>
-  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)">Actualizado: 2 jul</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
   <a class="card-url" href="https://chat.openai.com" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">chat.openai.com ↗</a>
   <p class="card-desc">Si en tu zona no hay un centro de acopio cercano o el más próximo está saturado, puedes crear uno provisional. Este prompt te da el protocolo completo para montarlo en menos de 2 horas.</p>
   <div class="card-aud"><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
@@ -1529,7 +1951,7 @@ Dame un protocolo completo que incluya:
 <div class="card" data-vzla="true" data-diaspora="true" data-search="acopio coordinar diáspora enviar insumos cómo llegar">
 <div class="card-head" onclick="toggleCard(this.closest('.card'))">
   <div class="card-top-row"><span class="card-name">Enviar ayuda desde la diáspora a un centro de acopio</span><span class="chevron">▾</span></div>
-  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)">Actualizado: 2 jul</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
   <a class="card-url" href="https://ayudaparavenezuela.com" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">ayudaparavenezuela.com ↗</a>
   <p class="card-desc">Si estás fuera de Venezuela y quieres que insumos físicos lleguen a un centro de acopio — ya sea comprándolos allá a través de alguien de confianza o enviando paquetes — este prompt coordina el proceso.</p>
   <div class="card-aud"><span class="aud-tag aud-d">✈️ Diáspora</span></div>
@@ -1575,10 +1997,105 @@ Necesito saber:
   </ul>
 </div>
 <div class="grid">
+<div class="card" data-vzla="true" data-diaspora="false" 
+<div class="card" data-vzla="true" data-diaspora="true" data-search="sismo ayuda ingenieros voluntarios inspección vivienda">
+<div class="card-head" onclick="toggleCard(this.closest('.card'))">
+  <div class="card-top-row"><span class="card-name">Sismo Ayuda Ve · Ingenieros voluntarios</span><span class="chevron">▾</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
+  <a class="card-url" href="https://www.sismoayudave.com" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">sismoayudave.com ↗</a>
+  <p class="card-desc">Conecta con ingenieros civiles voluntarios para evaluar daños estructurales. Solicita visita de inspección gratuita para saber si tu vivienda es habitable.</p>
+  <div class="card-aud"><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
+</div>
+<div class="card-body">
+  <div class="prompt-header"><span class="prompt-label">Prompt · Solicitar inspección estructural</span><button class="copy-btn" onclick="copyPromptBtn(this)">Copiar</button></div>
+  <div class="prompt-bg"><p class="prompt-text">Solicitud para sismoayudave.com:
+Dirección: <span class="var">[dirección]</span>
+Tipo de construcción: <span class="var">[bloque / concreto / madera]</span>
+Daños visibles: <span class="var">[describe exactamente]</span>
+Año de construcción: <span class="var">[aproximado]</span>
+Redacta la solicitud para priorizar la visita.</p></div>
+</div>
+</div>
+<div class="card" data-vzla="true" data-diaspora="true" data-search="grupo avila inspección edificios ingenieros estructural">
+<div class="card-head" onclick="toggleCard(this.closest('.card'))">
+  <div class="card-top-row"><span class="card-name">Grupo Ávila · Inspecciones de edificios</span><span class="chevron">▾</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
+  <a class="card-url" href="https://grupo-avila-inspecciones.vercel.app" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">grupo-avila-inspecciones.vercel.app ↗</a>
+  <p class="card-desc">Solicita inspección estructural de tu edificio o vivienda. Ingenieros voluntarios evalúan si es seguro regresar. Especialistas en Caracas y La Guaira.</p>
+  <div class="card-aud"><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
+</div>
+<div class="card-body">
+  <div class="prompt-header"><span class="prompt-label">Prompt · Describir daños en términos técnicos</span><button class="copy-btn" onclick="copyPromptBtn(this)">Copiar</button></div>
+  <div class="prompt-bg"><p class="prompt-text">Solicitud para Grupo Ávila:
+Grietas en: <span class="var">[paredes / columnas / vigas / losa]</span>
+Tipo: <span class="var">[diagonales / verticales / en X]</span>
+Puertas/ventanas: <span class="var">[abren bien / atascadas]</span>
+Pisos del edificio: <span class="var">[número]</span>
+Describe los daños para que el ingeniero pueda priorizar.</p></div>
+</div>
+</div>
+<div class="card" data-vzla="true" data-diaspora="true" data-search="habitable evaluación vivienda online habitabilidad ingenieros">
+<div class="card-head" onclick="toggleCard(this.closest('.card'))">
+  <div class="card-top-row"><span class="card-name">Habitable VE · Evaluación de vivienda online</span><span class="chevron">▾</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
+  <a class="card-url" href="https://habitable.lovable.app" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">habitable.lovable.app ↗</a>
+  <p class="card-desc">Solicita online una evaluación de habitabilidad. Ingenieros civiles revisan fotos y datos para determinar si es seguro entrar. Sin desplazarte de tu zona.</p>
+  <div class="card-aud"><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
+</div>
+<div class="card-body">
+  <div class="prompt-header"><span class="prompt-label">Prompt · Completar el formulario online</span><button class="copy-btn" onclick="copyPromptBtn(this)">Copiar</button></div>
+  <div class="prompt-bg"><p class="prompt-text">Evaluación en habitable.lovable.app:
+Dirección: <span class="var">[dirección]</span>
+Daños exteriores: <span class="var">[describe]</span>
+Daños interiores: <span class="var">[describe]</span>
+¿Ya entré?: <span class="var">[sí/no]</span>
+Sensación al estar dentro: <span class="var">[estable / cruje / huele a gas]</span>
+Describe los daños para evaluación a distancia.</p></div>
+</div>
+</div>
+<div class="card" data-vzla="true" data-diaspora="true" data-search="maquinaria operadores escombros rescate grúa voluntarios">
+<div class="card-head" onclick="toggleCard(this.closest('.card'))">
+  <div class="card-top-row"><span class="card-name">Maquinaria y Operadores · Voluntarios con equipo pesado</span><span class="chevron">▾</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
+  <a class="card-url" href="https://maquinasyoperadores.com" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">maquinasyoperadores.com ↗</a>
+  <p class="card-desc">Regístrate como voluntario operador de maquinaria pesada para rescate y remoción de escombros. Excavadoras, grúas, retroexcavadoras — cada equipo cuenta.</p>
+  <div class="card-aud"><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
+</div>
+<div class="card-body">
+  <div class="prompt-header"><span class="prompt-label">Prompt · Registrar maquinaria disponible</span><button class="copy-btn" onclick="copyPromptBtn(this)">Copiar</button></div>
+  <div class="prompt-bg"><p class="prompt-text">Registro en maquinasyoperadores.com:
+Tipo de maquinaria: <span class="var">[excavadora / grúa / retroexcavadora / camión]</span>
+Capacidad: <span class="var">[toneladas]</span>
+Zona: <span class="var">[ciudad, estado]</span>
+Disponibilidad: <span class="var">[inmediata / en X horas]</span>
+Combustible: <span class="var">[lo proveo / necesito apoyo]</span>
+Redacta el formulario de registro.</p></div>
+</div>
+</div>
+<div class="card" data-vzla="true" data-diaspora="true" data-search="tilinapp reporte técnico estructural daños edificio">
+<div class="card-head" onclick="toggleCard(this.closest('.card'))">
+  <div class="card-top-row"><span class="card-name">Tilinapp · Reportes técnicos estructurales</span><span class="chevron">▾</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
+  <a class="card-url" href="https://tilinapp.com" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">tilinapp.com ↗</a>
+  <p class="card-desc">Plataforma para reportes técnicos inmediatos de daños estructurales. Documenta el estado de tu edificio en tiempo real para coordinación con equipos de evaluación.</p>
+  <div class="card-aud"><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
+</div>
+<div class="card-body">
+  <div class="prompt-header"><span class="prompt-label">Prompt · Documentar daños para reporte técnico</span><button class="copy-btn" onclick="copyPromptBtn(this)">Copiar</button></div>
+  <div class="prompt-bg"><p class="prompt-text">Reporte técnico en tilinapp.com:
+Ubicación: <span class="var">[dirección]</span>
+Daños observados: <span class="var">[descripción detallada]</span>
+Pisos afectados: <span class="var">[número]</span>
+¿Personas dentro?: <span class="var">[sí/no/se desconoce]</span>
+Urgencia: <span class="var">[inmediata / puede esperar]</span>
+Redacta el reporte técnico estructurado.</p></div>
+</div>
+</div>
+
 <div class="card" data-vzla="true" data-diaspora="false" data-search="ingenieros estructural vivienda segura daños grietas evaluación">
 <div class="card-head" onclick="toggleCard(this.closest('.card'))">
   <div class="card-top-row"><span class="card-name">Colegio de Ingenieros de Venezuela · Evaluación estructural</span><span class="chevron">▾</span></div>
-  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)">Actualizado: 2 jul</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
   <a class="card-url" href="https://directorio-sismo.netlify.app" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">directorio-sismo.netlify.app (sección ingenieros) ↗</a>
   <p class="card-desc">El directorio ciudadano tiene listado actualizado de ingenieros civiles voluntarios que hacen evaluaciones estructurales gratuitas en zonas afectadas. Solicita una visita.</p>
   <div class="card-aud"><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
@@ -1605,7 +2122,7 @@ Responde de forma simple. No soy ingeniero.</p></div>
 <div class="card" data-vzla="true" data-diaspora="true" data-search="reporte daños vivienda seguro oficial documentación ingeniería">
 <div class="card-head" onclick="toggleCard(this.closest('.card'))">
   <div class="card-top-row"><span class="card-name">IA para documentar daños estructurales</span><span class="chevron">▾</span></div>
-  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-ai">IA</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)">Actualizado: 2 jul</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-ai">IA</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
   <a class="card-url" href="https://chat.openai.com" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">chat.openai.com ↗</a>
   <p class="card-desc">Usa IA para documentar los daños de tu vivienda correctamente para la solicitud de ayuda gubernamental o seguro. Un reporte bien hecho puede hacer la diferencia en la resolución.</p>
   <div class="card-aud"><span class="aud-tag aud-d">✈️ Diáspora</span><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
@@ -1647,10 +2164,82 @@ Genera:
   </ul>
 </div>
 <div class="grid">
+
+<div class="card" data-vzla="true" data-diaspora="true" data-search="recursos venezuela directorio verificado plataformas">
+<div class="card-head" onclick="toggleCard(this.closest('.card'))">
+  <div class="card-top-row"><span class="card-name">Recursos Venezuela · Directorio verificado</span><span class="chevron">▾</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
+  <a class="card-url" href="https://recursos-venezuela.netlify.app" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">recursos-venezuela.netlify.app ↗</a>
+  <p class="card-desc">Directorio de recursos verificados tras el terremoto en Venezuela: desaparecidos, hospitales, acopio, donaciones y emergencias. Mantenido con información confirmada.</p>
+  <div class="card-aud"><span class="aud-tag aud-d">✈️ Diáspora</span><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
+</div>
+<div class="card-body">
+  <div class="prompt-header"><span class="prompt-label">Prompt · Cruzar información con este directorio</span><button class="copy-btn" onclick="copyPromptBtn(this)">Copiar</button></div>
+  <div class="prompt-bg"><p class="prompt-text">Usa recursos-venezuela.netlify.app para verificar
+si el recurso o plataforma <span class="var">[nombre]</span>
+está incluido como válido.
+
+Si está: ¿qué descripción tiene y qué hace?
+Si no está: ¿aparece en otros directorios
+verificados como directorio-sismo.netlify.app
+o centraldeayudavenezuela.com?
+
+Dame un veredicto claro sobre su legitimidad.</p></div>
+</div>
+</div>
+<div class="card" data-vzla="true" data-diaspora="true" data-search="central ayuda venezuela directorio centralizado plataformas recursos">
+<div class="card-head" onclick="toggleCard(this.closest('.card'))">
+  <div class="card-top-row"><span class="card-name">Central de Ayuda Venezuela · Directorio centralizado</span><span class="chevron">▾</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
+  <a class="card-url" href="https://centraldeayudavenezuela.com" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">centraldeayudavenezuela.com ↗</a>
+  <p class="card-desc">Todas las páginas de ayuda para el terremoto centralizadas en un solo lugar. Hospitales, acopio, donaciones, desaparecidos. Incluye información de operadoras de telefonía activas.</p>
+  <div class="card-aud"><span class="aud-tag aud-d">✈️ Diáspora</span><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
+</div>
+<div class="card-body">
+  <div class="prompt-header"><span class="prompt-label">Prompt · Encontrar recurso específico en el directorio</span><button class="copy-btn" onclick="copyPromptBtn(this)">Copiar</button></div>
+  <div class="prompt-bg"><p class="prompt-text">¿Existe una plataforma o recurso para
+<span class="var">[necesidad específica]</span>
+tras el terremoto de Venezuela?
+
+Busca en centraldeayudavenezuela.com
+y también en directorio-sismo.netlify.app.
+
+Dame:
+— Nombre exacto de la plataforma
+— URL directa
+— Qué hace exactamente
+— Si está activa ahora mismo</p></div>
+</div>
+</div>
+<div class="card" data-vzla="true" data-diaspora="true" data-search="venehelp directorio plataformas desaparecidos localizados rescate">
+<div class="card-head" onclick="toggleCard(this.closest('.card'))">
+  <div class="card-top-row"><span class="card-name">VeneHelp · Directorio público de plataformas</span><span class="chevron">▾</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
+  <a class="card-url" href="https://directorioterremotovenezuela.org" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">directorioterremotovenezuela.org ↗</a>
+  <p class="card-desc">Directorio público con plataformas separadas por función: buscar/reportar personas, ver localizados, y recursos de emergencia que NO son para búsqueda de desaparecidos. Muy bien organizado.</p>
+  <div class="card-aud"><span class="aud-tag aud-d">✈️ Diáspora</span><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
+</div>
+<div class="card-body">
+  <div class="prompt-header"><span class="prompt-label">Prompt · Identificar la plataforma correcta según tu caso</span><button class="copy-btn" onclick="copyPromptBtn(this)">Copiar</button></div>
+  <div class="prompt-bg"><p class="prompt-text">Necesito saber cuál es la plataforma correcta
+para <span class="var">[mi situación específica]</span>.
+
+Describe el directorio de directorioterremotovenezuela.org
+y dime qué sección corresponde a mi caso:
+
+A) Buscar/reportar persona desaparecida
+B) Ver si alguien ya fue localizado
+C) Coordinar rescate u otros recursos
+D) <span class="var">[otro caso]</span>
+
+Dame la plataforma exacta y cómo usarla.</p></div>
+</div>
+</div>
+
 <div class="card" data-vzla="true" data-diaspora="true" data-search="perplexity verificar fuentes tiempo real bulos noticias">
 <div class="card-head" onclick="toggleCard(this.closest('.card'))">
   <div class="card-top-row"><span class="card-name">Perplexity · Verificación con fuentes en tiempo real</span><span class="chevron">▾</span></div>
-  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-ai">IA</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)">Actualizado: 2 jul</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-ai">IA</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
   <a class="card-url" href="https://www.perplexity.ai" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">perplexity.ai ↗</a>
   <p class="card-desc">Búsqueda con IA que cita las fuentes exactas. Activa la búsqueda web antes de usar. La herramienta más eficaz para contrastar datos sobre el terremoto con referencias verificadas.</p>
   <div class="card-aud"><span class="aud-tag aud-d">✈️ Diáspora</span><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
@@ -1677,7 +2266,7 @@ Dame:
 <div class="card" data-vzla="true" data-diaspora="true" data-search="chatgpt verificar mensajes whatsapp noticias falsas bulos">
 <div class="card-head" onclick="toggleCard(this.closest('.card'))">
   <div class="card-top-row"><span class="card-name">ChatGPT · Verificar mensajes de WhatsApp</span><span class="chevron">▾</span></div>
-  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-ai">IA</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)">Actualizado: 2 jul</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-ai">IA</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
   <a class="card-url" href="https://chat.openai.com" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">chat.openai.com ↗</a>
   <p class="card-desc">Para verificar mensajes de cadena, noticias virales y afirmaciones sobre el terremoto. Activa la búsqueda web (ícono 🌐) antes de enviar el prompt para resultados en tiempo real.</p>
   <div class="card-aud"><span class="aud-tag aud-d">✈️ Diáspora</span><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
@@ -1703,7 +2292,7 @@ decidir si compartirlo o no.</p></div>
 <div class="card" data-vzla="true" data-diaspora="true" data-search="directorio verificado sismo plataforma legítima estafa donación">
 <div class="card-head" onclick="toggleCard(this.closest('.card'))">
   <div class="card-top-row"><span class="card-name">Directorio Ciudadano Verificado</span><span class="chevron">▾</span></div>
-  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)">Actualizado: 2 jul</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
   <a class="card-url" href="https://directorio-sismo.netlify.app" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">directorio-sismo.netlify.app ↗</a>
   <p class="card-desc">El directorio ciudadano original verificado manualmente. Úsalo como referencia para validar si una plataforma, cuenta o iniciativa de donación es legítima antes de compartirla.</p>
   <div class="card-aud"><span class="aud-tag aud-d">✈️ Diáspora</span><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
@@ -1750,7 +2339,7 @@ Y explica por qué en 2-3 puntos concretos.</p></div>
 <div class="card" data-vzla="true" data-diaspora="false" data-search="cédula saime reponer documentos identidad venezuela terremoto">
 <div class="card-head" onclick="toggleCard(this.closest('.card'))">
   <div class="card-top-row"><span class="card-name">Reponer cédula venezolana tras el terremoto</span><span class="chevron">▾</span></div>
-  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-o">Oficial</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)">Actualizado: 2 jul</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-o">Oficial</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
   <a class="card-url" href="https://saime.gob.ve" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">saime.gob.ve ↗</a>
   <p class="card-desc">El SAIME tiene un protocolo especial para víctimas de desastres naturales. No necesitas el número de cédula anterior si tienes testigos que confirmen tu identidad. Proceso gratuito.</p>
   <div class="card-aud"><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
@@ -1780,7 +2369,7 @@ Genera:
 <div class="card" data-vzla="true" data-diaspora="true" data-search="documentos orden prioridad plan reposición situación venezuela">
 <div class="card-head" onclick="toggleCard(this.closest('.card'))">
   <div class="card-top-row"><span class="card-name">Orden de reposición según tu situación</span><span class="chevron">▾</span></div>
-  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-ai">IA</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)">Actualizado: 2 jul</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-ai">IA</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
   <a class="card-url" href="https://chat.openai.com" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">chat.openai.com ↗</a>
   <p class="card-desc">No todos los documentos tienen la misma urgencia ni el mismo proceso. La IA calcula el orden correcto según lo que necesitas acceder primero: ayuda, trabajo o viaje.</p>
   <div class="card-aud"><span class="aud-tag aud-d">✈️ Diáspora</span><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
@@ -1807,7 +2396,7 @@ Dame:
 <div class="card" data-vzla="false" data-diaspora="true" data-search="acnur consulado solicitud carta institucional ayuda exterior diáspora">
 <div class="card-head" onclick="toggleCard(this.closest('.card'))">
   <div class="card-top-row"><span class="card-name">Solicitar ayuda a organizaciones internacionales</span><span class="chevron">▾</span></div>
-  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-ai">IA</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)">Actualizado: 2 jul</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-ai">IA</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
   <a class="card-url" href="https://chat.openai.com" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">chat.openai.com ↗</a>
   <p class="card-desc">Para venezolanos en el exterior que necesitan apoyo para trámites, documentos o asistencia consular urgente. Cruz Roja, ACNUR y los consulados tienen protocolos especiales para desastres.</p>
   <div class="card-aud"><span class="aud-tag aud-d">✈️ Diáspora</span></div>
@@ -1837,10 +2426,157 @@ Incluye referencia al terremoto y fecha del desastre.</p></div>
   <h2 class="sec-title">Mascotas y animales</h2>
 </div>
 <div class="grid">
+
+<div class="card" data-vzla="true" data-diaspora="true" data-search="mascotasvzla mapa colaborativo perdidas encontradas">
+<div class="card-head" onclick="toggleCard(this.closest('.card'))">
+  <div class="card-top-row"><span class="card-name">MascotasVZla · Mapa colaborativo</span><span class="chevron">▾</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
+  <a class="card-url" href="https://mascotasvzla.org" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">mascotasvzla.org ↗</a>
+  <p class="card-desc">Mapa colaborativo para reportar mascotas perdidas, encontradas o resguardadas en Venezuela. Visualiza en el mapa dónde están las mascotas reportadas cerca de tu zona.</p>
+  <div class="card-aud"><span class="aud-tag aud-d">✈️ Diáspora</span><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
+</div>
+<div class="card-body">
+  <div class="prompt-header"><span class="prompt-label">Prompt · Reportar mascota en el mapa colaborativo</span><button class="copy-btn" onclick="copyPromptBtn(this)">Copiar</button></div>
+  <div class="prompt-bg"><p class="prompt-text">Quiero reportar una mascota en mascotasvzla.org.
+
+Datos de la mascota:
+— Estado: <span class="var">[perdida / encontrada / en refugio temporal]</span>
+— Especie y raza: <span class="var">[perro/gato + raza]</span>
+— Descripción: <span class="var">[color, tamaño, señas]</span>
+— Zona donde fue vista por última vez: <span class="var">[zona]</span>
+— Contacto: <span class="var">[teléfono]</span>
+
+Redacta el reporte para el mapa colaborativo
+y el mensaje para compartir en grupos de WhatsApp.</p></div>
+</div>
+</div>
+<div class="card" data-vzla="true" data-diaspora="true" data-search="huellas salvo veterinaria urgencia mascotas emergencia">
+<div class="card-head" onclick="toggleCard(this.closest('.card'))">
+  <div class="card-top-row"><span class="card-name">Huellas a Salvo · Plataforma de emergencia</span><span class="chevron">▾</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
+  <a class="card-url" href="https://huellasasalvo.org" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">huellasasalvo.org ↗</a>
+  <p class="card-desc">Plataforma de emergencia para reportar mascotas, encontrar ayuda veterinaria urgente y hogares temporales. Se actualiza cada 30 segundos.</p>
+  <div class="card-aud"><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
+</div>
+<div class="card-body">
+  <div class="prompt-header"><span class="prompt-label">Prompt · Solicitar ayuda veterinaria de urgencia</span><button class="copy-btn" onclick="copyPromptBtn(this)">Copiar</button></div>
+  <div class="prompt-bg"><p class="prompt-text">Mi mascota necesita ayuda veterinaria urgente
+tras el terremoto de Venezuela.
+
+Situación:
+— Animal: <span class="var">[especie + raza]</span>
+— Lesión o problema: <span class="var">[describe]</span>
+— Zona donde estoy: <span class="var">[zona]</span>
+— Puedo trasladarla: <span class="var">[sí/no]</span>
+
+Dame:
+1. Cómo reportar en huellasasalvo.org para urgencias
+2. Cómo pedir ayuda veterinaria a domicilio si no puedo moverla
+3. Primeros cuidados básicos mientras llega ayuda</p></div>
+</div>
+</div>
+<div class="card" data-vzla="true" data-diaspora="true" data-search="patitas salvo venezuela perdidas encontradas refugio">
+<div class="card-head" onclick="toggleCard(this.closest('.card'))">
+  <div class="card-top-row"><span class="card-name">Patitas a Salvo Venezuela · Perdidas y encontradas</span><span class="chevron">▾</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
+  <a class="card-url" href="https://patitasasalvovenezuela.org" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">patitasasalvovenezuela.org ↗</a>
+  <p class="card-desc">Reporta una mascota perdida, avisa si encontraste una, o ayuda con refugios e insumos para animales afectados por el terremoto.</p>
+  <div class="card-aud"><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
+</div>
+<div class="card-body">
+  <div class="prompt-header"><span class="prompt-label">Prompt · Anuncio para mascota encontrada sin dueño</span><button class="copy-btn" onclick="copyPromptBtn(this)">Copiar</button></div>
+  <div class="prompt-bg"><p class="prompt-text">Encontré una mascota sola tras el terremoto de Venezuela
+y quiero reportarla en patitasasalvovenezuela.org.
+
+Datos de la mascota encontrada:
+— Especie y raza: <span class="var">[perro/gato + raza si se sabe]</span>
+— Descripción física: <span class="var">[color, tamaño, condición]</span>
+— Dónde la encontré: <span class="var">[zona exacta]</span>
+— Cuándo: <span class="var">[fecha y hora]</span>
+— Lleva collar o chip: <span class="var">[sí/no]</span>
+— Puedo cuidarla temporalmente: <span class="var">[sí/no]</span>
+
+Redacta el reporte y el anuncio para WhatsApp e Instagram.</p></div>
+</div>
+</div>
+<div class="card" data-vzla="true" data-diaspora="true" data-search="mascotas venezuela directorio perdidas encontradas">
+<div class="card-head" onclick="toggleCard(this.closest('.card'))">
+  <div class="card-top-row"><span class="card-name">Mascotas por Venezuela · Directorio completo</span><span class="chevron">▾</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
+  <a class="card-url" href="https://mascotasporvenezuela.com" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">mascotasporvenezuela.com ↗</a>
+  <p class="card-desc">Directorio completo de mascotas perdidas y encontradas durante el terremoto. Busca animales desaparecidos o reporta uno que encontraste.</p>
+  <div class="card-aud"><span class="aud-tag aud-d">✈️ Diáspora</span><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
+</div>
+<div class="card-body">
+  <div class="prompt-header"><span class="prompt-label">Prompt · Buscar mascota desaparecida específica</span><button class="copy-btn" onclick="copyPromptBtn(this)">Copiar</button></div>
+  <div class="prompt-bg"><p class="prompt-text">Busco a mi mascota desaparecida durante el terremoto
+de Venezuela del 24 de junio de 2026.
+
+Descripción:
+— Especie: <span class="var">[perro/gato/otro]</span>
+— Raza: <span class="var">[raza o mestizo]</span>
+— Nombre: <span class="var">[nombre]</span>
+— Color y características: <span class="var">[descripción detallada]</span>
+— Zona donde se perdió: <span class="var">[barrio, ciudad]</span>
+— Señas particulares: <span class="var">[collar, chip, cicatrices]</span>
+
+Busca en mascotasporvenezuela.com y dame también
+lista de los 3 siguientes pasos si no aparece allí.</p></div>
+</div>
+</div>
+<div class="card" data-vzla="true" data-diaspora="true" data-search="migente VE rescatistas mascotas dueños voluntarios">
+<div class="card-head" onclick="toggleCard(this.closest('.card'))">
+  <div class="card-top-row"><span class="card-name">Mi Gente VE · Rescatistas y dueños</span><span class="chevron">▾</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
+  <a class="card-url" href="https://migenteve.com" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">migenteve.com ↗</a>
+  <p class="card-desc">Plataforma que conecta rescatistas de animales con dueños que buscan a sus mascotas. Si eres rescatista o tienes capacidad de ayudar, regístrate aquí.</p>
+  <div class="card-aud"><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
+</div>
+<div class="card-body">
+  <div class="prompt-header"><span class="prompt-label">Prompt · Registrarse como rescatista de mascotas</span><button class="copy-btn" onclick="copyPromptBtn(this)">Copiar</button></div>
+  <div class="prompt-bg"><p class="prompt-text">Quiero registrarme en migenteve.com como
+rescatista voluntario de mascotas afectadas
+por el terremoto de Venezuela.
+
+Mis datos:
+— Tipo de ayuda que puedo dar: <span class="var">[rescate físico / hogar temporal / transporte / veterinario]</span>
+— Zona donde puedo operar: <span class="var">[zona]</span>
+— Tengo vehículo para traslados: <span class="var">[sí/no]</span>
+— Tengo espacio para alojamiento temporal: <span class="var">[sí: X animales / no]</span>
+— Horario disponible: <span class="var">[horario]</span>
+
+Redacta mi perfil de rescatista para registrarme.</p></div>
+</div>
+</div>
+
+
+<div class="card" data-vzla="true" data-diaspora="true" data-search="nueva huella adopción hogar temporal mascotas acogida">
+<div class="card-head" onclick="toggleCard(this.closest('.card'))">
+  <div class="card-top-row"><span class="card-name">Nueva Huella · Adopción y hogar temporal</span><span class="chevron">▾</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-v">✓ Verificado</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
+  <a class="card-url" href="https://nuevahuella.metratools.com" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">nuevahuella.metratools.com ↗</a>
+  <p class="card-desc">Conecta rescatistas, cuidadores y familias para adopción o acogida temporal de mascotas afectadas. La aprobación final la hace el cuidador — plataforma segura y moderada.</p>
+  <div class="card-aud"><span class="aud-tag aud-d">✈️ Diáspora</span><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
+</div>
+<div class="card-body">
+  <div class="prompt-header"><span class="prompt-label">Prompt · Solicitar o ofrecer acogida temporal</span><button class="copy-btn" onclick="copyPromptBtn(this)">Copiar</button></div>
+  <div class="prompt-bg"><p class="prompt-text">Quiero <span class="var">[solicitar acogida temporal para mi mascota / ofrecer mi casa como acogida]</span>
+en nuevahuella.metratools.com.
+
+Datos:
+— Especie y raza: <span class="var">[perro/gato + raza]</span>
+— Zona: <span class="var">[ciudad, estado]</span>
+— Tiempo: <span class="var">[días o semanas]</span>
+— Condiciones especiales: <span class="var">[niños / otras mascotas / alergias]</span>
+
+Redacta el perfil para la plataforma.</p></div>
+</div>
+</div>
+
 <div class="card" data-vzla="true" data-diaspora="true" data-search="mascotas perdidas perros gatos huellascan animales terremoto">
 <div class="card-head" onclick="toggleCard(this.closest('.card'))">
   <div class="card-top-row"><span class="card-name">HuellaScan · Mascotas del terremoto</span><span class="chevron">▾</span></div>
-  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)">Actualizado: 2 jul</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
   <a class="card-url" href="https://huellascan.com/terremoto" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">huellascan.com/terremoto ↗</a>
   <p class="card-desc">Reporta mascotas perdidas o encontradas. Solicita ayuda veterinaria de urgencia. Directorio de hogares temporales para animales desplazados por el sismo.</p>
   <div class="card-aud"><span class="aud-tag aud-d">✈️ Diáspora</span><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
@@ -1869,7 +2605,7 @@ Genera versiones para:
 <div class="card" data-vzla="true" data-diaspora="false" data-search="veterinario primeros auxilios animal herido urgencia mascota">
 <div class="card-head" onclick="toggleCard(this.closest('.card'))">
   <div class="card-top-row"><span class="card-name">Primeros auxilios veterinarios con IA</span><span class="chevron">▾</span></div>
-  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-ai">IA</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)">Actualizado: 2 jul</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-ai">IA</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
   <a class="card-url" href="https://chat.openai.com" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">chat.openai.com ↗</a>
   <p class="card-desc">Si tu mascota está herida y no puedes llegar a un veterinario de inmediato, usa este prompt para instrucciones de estabilización básica mientras llega ayuda profesional.</p>
   <div class="card-aud"><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
@@ -1896,7 +2632,7 @@ Dime:
 <div class="card" data-vzla="true" data-diaspora="true" data-search="hogar temporal mascota acogida refugio animales">
 <div class="card-head" onclick="toggleCard(this.closest('.card'))">
   <div class="card-top-row"><span class="card-name">Ofrecer hogar temporal para mascotas</span><span class="chevron">▾</span></div>
-  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)">Actualizado: 2 jul</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
   <a class="card-url" href="https://directorio-sismo.netlify.app" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">directorio-sismo.netlify.app (sección 🐾) ↗</a>
   <p class="card-desc">Si puedes acoger temporalmente a una mascota desplazada por el sismo, el directorio coordina el contacto con las familias. También lista insumos veterinarios que se necesitan.</p>
   <div class="card-aud"><span class="aud-tag aud-d">✈️ Diáspora</span><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
@@ -1971,7 +2707,7 @@ en el directorio y en grupos de WhatsApp/Telegram de venezolanos.</p></div>
 <div class="card" data-vzla="true" data-diaspora="true" data-search="grupos whatsapp telegram canales zona activos coordinación">
 <div class="card-head" onclick="toggleCard(this.closest('.card'))">
   <div class="card-top-row"><span class="card-name">Encuentra grupos activos en tu zona con IA</span><span class="chevron">▾</span></div>
-  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-ai">IA</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)">Actualizado: 2 jul</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-ai">IA</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
   <a class="card-url" href="https://www.perplexity.ai" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">perplexity.ai ↗</a>
   <p class="card-desc">Usa Perplexity para encontrar los grupos de WhatsApp y Telegram activos de coordinación de ayuda para una zona específica de Venezuela. Los grupos cambian rápido — busca con la fecha de hoy.</p>
   <div class="card-aud"><span class="aud-tag aud-d">✈️ Diáspora</span><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
@@ -2017,7 +2753,7 @@ Prioriza canales verificables sobre grupos anónimos.</p></div>
 <div class="card" data-vzla="true" data-diaspora="true" data-search="réplicas ansiedad miedo sismo psicología día 10">
 <div class="card-head" onclick="toggleCard(this.closest('.card'))">
   <div class="card-top-row"><span class="card-name">Cómo manejar la ansiedad por las réplicas</span><span class="chevron">▾</span></div>
-  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Urgente día 10</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)">Actualizado: 2 jul</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Urgente día 10</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
   <p class="card-desc">Las réplicas pueden durar semanas o meses. El miedo a cada vibración es una respuesta normal, pero cuando paraliza hay que actuar. Este prompt ayuda a entender qué es esperable y qué no.</p>
   <div class="card-aud"><span class="aud-tag aud-v">🇻🇪 Venezuela</span><span class="aud-tag aud-d">✈️ Diáspora</span></div>
 </div>
@@ -2045,7 +2781,7 @@ Necesito saber:
 <div class="card" data-vzla="true" data-diaspora="true" data-search="prepararse réplicas plan emergencia mochila sismo">
 <div class="card-head" onclick="toggleCard(this.closest('.card'))">
   <div class="card-top-row"><span class="card-name">Plan de acción personal para las réplicas</span><span class="chevron">▾</span></div>
-  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)">Actualizado: 2 jul</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
   <p class="card-desc">Tener un plan concreto reduce el pánico. Saber qué hacer en los primeros 10 segundos de una réplica convierte la ansiedad difusa en acción. La IA puede ayudarte a crear tu plan personalizado.</p>
   <div class="card-aud"><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
 </div>
@@ -2081,7 +2817,7 @@ Necesito un plan con:
 <div class="card" data-vzla="true" data-diaspora="true" data-search="niños trauma escuela vuelta clases infantil contención">
 <div class="card-head" onclick="toggleCard(this.closest('.card'))">
   <div class="card-top-row"><span class="card-name">Apoyar a niños que vivieron el terremoto</span><span class="chevron">▾</span></div>
-  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Urgente día 10</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)">Actualizado: 2 jul</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Urgente día 10</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
   <p class="card-desc">Los niños procesan el trauma de forma diferente a los adultos. Pueden parecer bien durante días y descompensarse después. Este prompt ayuda a identificar señales y saber cómo actuar.</p>
   <div class="card-aud"><span class="aud-tag aud-v">🇻🇪 Venezuela</span><span class="aud-tag aud-d">✈️ Diáspora</span></div>
 </div>
@@ -2113,7 +2849,7 @@ Necesito saber:
 <div class="card" data-vzla="true" data-diaspora="true" data-search="escuela regreso clases niños vuelta educación terremoto">
 <div class="card-head" onclick="toggleCard(this.closest('.card'))">
   <div class="card-top-row"><span class="card-name">Vuelta a la escuela después del terremoto</span><span class="chevron">▾</span></div>
-  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)">Actualizado: 2 jul</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
   <p class="card-desc">Volver a la rutina escolar es uno de los mejores apoyos emocionales para los niños, pero también puede ser un momento difícil. Este prompt prepara la conversación con los niños y con la escuela.</p>
   <div class="card-aud"><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
 </div>
@@ -2149,7 +2885,7 @@ Necesito:
 <div class="card" data-vzla="true" data-diaspora="true" data-search="crédito préstamo microcrédito recuperación económica negocio">
 <div class="card-head" onclick="toggleCard(this.closest('.card'))">
   <div class="card-top-row"><span class="card-name">Acceso a microcréditos y ayuda económica</span><span class="chevron">▾</span></div>
-  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-n">Semana 2</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)">Actualizado: 2 jul</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-n">Semana 2</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
   <a class="card-url" href="https://chat.openai.com" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">chat.openai.com ↗</a>
   <p class="card-desc">Con el negocio o el trabajo afectado por el terremoto, la recuperación económica empieza por saber a qué se puede acceder. La IA ayuda a identificar opciones reales según tu situación.</p>
   <div class="card-aud"><span class="aud-tag aud-v">🇻🇪 Venezuela</span><span class="aud-tag aud-d">✈️ Diáspora</span></div>
@@ -2184,7 +2920,7 @@ Necesito saber:
 <div class="card" data-vzla="true" data-search="seguro reclamación vivienda daños propiedad">
 <div class="card-head" onclick="toggleCard(this.closest('.card'))">
   <div class="card-top-row"><span class="card-name">Reclamar al seguro por daños del terremoto</span><span class="chevron">▾</span></div>
-  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-n">Semana 2</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)">Actualizado: 2 jul</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-n">Semana 2</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
   <a class="card-url" href="https://chat.openai.com" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">chat.openai.com ↗</a>
   <p class="card-desc">Si tienes seguro de hogar o de negocio, el proceso de reclamación tiene plazos cortos. Pasados 15-30 días puede complicarse. Actúa ahora con la documentación correcta.</p>
   <div class="card-aud"><span class="aud-tag aud-v">🇻🇪 Venezuela</span></div>
@@ -2223,7 +2959,7 @@ Genera:
 <div class="card" data-diaspora="true" data-search="diáspora agotamiento cuidador apoyo quemado burnout">
 <div class="card-head" onclick="toggleCard(this.closest('.card'))">
   <div class="card-top-row"><span class="card-name">Apoyo para la diáspora que lleva 10 días gestionando</span><span class="chevron">▾</span></div>
-  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Urgente día 10</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)">Actualizado: 2 jul</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Urgente día 10</span><span class="pill pill-n">Nuevo</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
   <p class="card-desc">10 días coordinando ayuda, enviando dinero, buscando información y sin dormir bien tiene un coste real. El síndrome del cuidador también afecta a los venezolanos en el exterior. Este prompt es para ti, no para tu familiar.</p>
   <div class="card-aud"><span class="aud-tag aud-d">✈️ Diáspora</span></div>
 </div>
@@ -2254,7 +2990,7 @@ Necesito saber:
 <div class="card" data-diaspora="true" data-search="sostenibilidad ayuda largo plazo voluntariado organizar">
 <div class="card-head" onclick="toggleCard(this.closest('.card'))">
   <div class="card-top-row"><span class="card-name">Cómo sostener la ayuda más allá de la emergencia</span><span class="chevron">▾</span></div>
-  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-n">Semana 2</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)">Actualizado: 2 jul</span></div>
+  <div class="status-row"><span class="status-dot active"></span><span class="status-text active">● Activo</span><span class="pill pill-n">Semana 2</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray)" class="card-date">Actualizado: <span class="dyn-date">hoy</span></span></div>
   <a class="card-url" href="https://chat.openai.com" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">chat.openai.com ↗</a>
   <p class="card-desc">La atención mediática se va. Los donantes se cansan. Pero la recuperación dura meses. Este prompt ayuda a organizar una red de apoyo sostenible para los próximos 3-6 meses.</p>
   <div class="card-aud"><span class="aud-tag aud-d">✈️ Diáspora</span></div>
@@ -2291,7 +3027,7 @@ Necesito:
 </div><!-- /sections-wrap -->
 
 <footer>
-  <strong>IAbooleana</strong> · La IA, simplificada. · Directorio Venezuela 2026 · Actualizado 3 julio 2026<br>
+  <strong>IAbooleana</strong> · La IA, simplificada. · Directorio Venezuela 2026 · Actualizado <span id="footer-date">3 de julio de 2026</span><br>
   <span style="margin-top:6px;display:block">Verifica siempre en los canales oficiales antes de donar o compartir información.</span>
 </footer>
 <script>
@@ -2524,6 +3260,31 @@ self.addEventListener('fetch', e => {
     navigator.serviceWorker.register(swUrl, {scope: '/'}).catch(() => {});
   } catch(e) {}
 }
+
+
+/* ── AUTO DATE — always shows today ── */
+function updateDates() {
+  const now  = new Date();
+  const meses = ['enero','febrero','marzo','abril','mayo','junio',
+                 'julio','agosto','septiembre','octubre','noviembre','diciembre'];
+  const mesesCortos = ['ene','feb','mar','abr','may','jun',
+                       'jul','ago','sep','oct','nov','dic'];
+  const d = now.getDate();
+  const m = now.getMonth();
+  const y = now.getFullYear();
+
+  const short  = d + ' ' + mesesCortos[m];           // "4 jul"
+  const ticker = d + ' DE ' + mesesCortos[m].toUpperCase() + ' ' + y; // "4 DE JUL 2026"
+  const long   = d + ' de ' + meses[m] + ' de ' + y; // "4 de julio de 2026"
+
+  const el = id => document.getElementById(id);
+  if (el('stat-date'))   el('stat-date').textContent   = short;
+  if (el('ticker-date')) el('ticker-date').textContent = ticker;
+  if (el('footer-date')) el('footer-date').textContent = long;
+  if (el('hdr-date'))    el('hdr-date').textContent    = short + ' · ' + y;
+  document.querySelectorAll('.dyn-date').forEach(s => s.textContent = short);
+}
+updateDates();
 
 /* ── INIT ── */
 document.addEventListener('DOMContentLoaded', () => {
